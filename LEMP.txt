@@ -1,0 +1,320 @@
+#CREATE A USER WITH SUDO GROUP
+sudo nano /etc/hostname
+##### change to sholehkhiz.com
+sudo reboot
+adduser server_user && adduser server_user sudo
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt install curl -y
+curl https://easyinstall.citadel.org/install | bash
+# options: leave all options to default just change password - http port to 8080 and https port to 8443.
+# on domain dns add mx to both server ip and domain.ir and mail.domain.ir next add other dns properties to mail rank
+
+#### MAYBE (CHANGE DOMAIN NAME IN ADMINSTRATION ) if anything wrong about receiving mails happens undo this
+#THEN CREATE THESE REQUIRED EMAILS with permission to send internet mails
+info@sholehkhiz.com - error404@sholehkhiz.com - error500@sholehkhiz.com - contactus@sholehkhiz.com - sportclubcontact@sholehkhiz.com
+######## Important: In Admin Panel Head To Adminstration -> Edit Site-Wide Configuration -> Access ->
+######## Check Disable Self-Service User Account Creation; Hint: Do Not Select Both!
+
+
+
+#INSIDE USER server_user:
+
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.9 -y
+sudo apt-get install python3.8-venv python3.9-venv -y
+
+sudo apt-get install -y libgeos-dev binutils libproj-dev gdal-bin libgdal-dev python3-gdal build-essential libpq-dev libssl-dev openssl libffi-dev zlib1g-dev python3-pip
+sudo apt-get install -y git supervisor nginx postgresql postgis
+
+pip install virtualenv
+
+##ADJUST POSTGRESQL
+
+sudo su - postgres
+createuser -P server_user
+psql
+CREATE DATABASE maindb; ALTER ROLE server_user SUPERUSER; GRANT ALL PRIVILEGES ON DATABASE maindb TO server_user;
+\q
+exit
+
+#INSIDE MAIN DIRECORY WHICH IS /home/server_user
+
+python3.9 -m venv django_env && source django_env/bin/activate && sudo apt-get install libpq-dev python3-dev
+
+cd django_env && sudo nano config.json
+
+###########
+
+{
+  "ALLOWED_HOST1": "sholehkhiz.com",
+  "ALLOWED_HOST2": "www.sholehkhiz.com",
+  "ALLOWED_HOST3": "185.255.88.144",
+  "SECRET_KEY": "django-insecure-(x8-efeddkf2)30=^1ekb2707ag9!jhn*(4l(-zn0wb4u$f7xq",
+  "DEBUG":"False",
+  "DATABASE_NAME": "maindb",
+  "DATABASE_USER": "server_user",
+  "DATABASE_PASSWORD": "192837465Sh@leh",
+  "EMAIL_USER": "info@sholehkhiz.com",
+  "EMAIL_PASSWORD": "199271Raiden"
+}
+
+###########
+
+#office
+cd && git clone https://github.com/alienone305/SholeKhiz.git SholehKhiz
+
+#THEN INSIDE THERE:
+
+cd /home/server_user/SholehKhiz && pip install -r requirements.txt && pip install django[argon2] && pip install django-dbbackup
+python manage.py makemigrations && python manage.py migrate && pip install gunicorn psycopg2-binary
+python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic
+#CHECK IF IT IS RUNNING CORRECTLY IN Main_Project
+gunicorn SholehKhiz.wsgi:application --bind 0.0.0.0:8001
+
+#THEN CD TO MAIN DIRECORY /home/server_user
+
+cd && nano gunicorn_start.bash
+
+ADD THESE LINES THERE
+################################
+#!/bin/bash
+
+NAME="SholehKhiz"                                    # Name of the application
+DJANGODIR=/home/server_user/SholehKhiz               # Django project directory
+SOCKFILE=/home/server_user/django_env/run/gunicorn.sock  # we will communicte using this unix socket
+USER=server_user                                         # the user to run as
+GROUP=server_user                                        # the group to run as
+NUM_WORKERS=3                                       # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=SholehKhiz.settings      # which settings file should Django use
+DJANGO_WSGI_MODULE=SholehKhiz.wsgi              # WSGI module name
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+
+cd $DJANGODIR
+source /home/server_user/django_env/bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+
+exec gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE \
+  --log-level=debug \
+  --log-file=-
+
+#########################################################
+
+cd SholehKhiz/ && sudo rm -r SholehKhiz/settings.py && sudo mv SholehKhiz/settings0.py SholehKhiz/settings.py
+
+cd && sudo chmod u+x gunicorn_start.bash
+
+CHECK IT BY RUNNING:
+./gunicorn_start.bash
+sudo nano /etc/supervisor/conf.d/SholehKhiz.conf
+
+ADD THESE LINES THERE
+#########################################################
+
+[program:SholehKhiz]
+command = /home/server_user/gunicorn_start.bash                  ; Command to start app
+user = server_user                                                ; User to run as
+stdout_logfile = /home/server_user/logs/gunicorn_supervisor.log   ; Where to write log messages
+redirect_stderr = true                                       ; Save stderr in the same log
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8              ; Set UTF-8 as default encoding
+
+###########################################################
+
+mkdir -p /home/server_user/logs/
+touch /home/server_user/logs/gunicorn_supervisor.log
+sudo systemctl restart supervisor
+sudo systemctl enable supervisor
+
+CHECK SUPERVISOR BY RUNNING:
+sudo supervisorctl status SholehKhiz
+
+sudo nano /etc/nginx/sites-available/SholehKhiz.conf
+
+
+ADD THESE LINES THERE
+########################################################
+
+upstream SholehKhiz_server {
+  # fail_timeout=0 means we always retry an upstream even if it failed
+  # to return a good HTTP response (in case the Unicorn master nukes a
+  # single worker for timing out).
+  server unix:/home/server_user/django_env/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+
+    listen   80;
+    server_name  185.255.88.144 sholehkhiz.com www.sholehkhiz.com;
+
+    client_max_body_size 4G;
+    access_log /home/server_user/logs/nginx-access.log;
+    error_log /home/server_user/logs/nginx-error.log;
+
+    location /static/ {
+        alias   /home/server_user/SholehKhiz/static/;
+    }
+
+    location /media/ {
+        alias   /home/server_user/SholehKhiz/media/;
+    }
+
+    location / {
+
+        # an HTTP header important enough to have its own Wikipedia entry:
+        #   http://en.wikipedia.org/wiki/X-Forwarded-For
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+
+        # enable this if and only if you use HTTPS, this helps Rack
+        # set the proper protocol for doing redirects:
+        # proxy_set_header X-Forwarded-Proto https;
+
+        # pass the Host: header from the client right along so redirects
+        # can be set properly within the Rack application
+        proxy_set_header Host $http_host;
+
+        # we don't want nginx trying to do something clever with
+        # redirects, we set the Host: header above already.
+        proxy_redirect off;
+
+        # set "proxy_buffering off" *only* for Rainbows! when doing
+        # Comet/long-poll stuff.  It's also safe to set if you're
+        # using only serving fast clients with Unicorn + nginx.
+        # Otherwise you _want_ nginx to buffer responses to slow
+        # clients, really.
+        # proxy_buffering off;
+
+        # Try to serve static files from nginx, no point in making an
+        # *application* server like Unicorn/Rainbows! serve static files.
+        if (!-f $request_filename) {
+            proxy_pass http://SholehKhiz_server;
+            break;
+        }
+    }
+
+    error_page 500 502 503 504 /custom_50x.html;
+    location = /custom_50x.html {
+        root /home/server_user/SholehKhiz/templates/nginx_error_pages/;
+        internal;
+        }
+
+    error_page 404 /custom_404.html;
+    location = /custom_404.html {
+        root /home/server_user/SholehKhiz/templates/nginx_error_pages/;
+        internal;
+        }
+    location /blog {
+       alias /var/www/sholehkhiz.com;
+       try_files $uri $uri/ @blog;
+       index index.php index.html index.htm index.nginx-debian.html;
+
+       location ~ \.php$ {
+         try_files $uri =404;
+         fastcgi_pass 127.0.0.1:9000;
+         fastcgi_index index.php;
+         fastcgi_param SCRIPT_FILENAME $request_filename;
+         include fastcgi_params;
+       }
+    }
+    location @blog {
+      rewrite /blog/(.*)$ /blog/index.php?/$1 last;
+    }
+
+}
+
+########################################################################
+
+sudo ln -s /etc/nginx/sites-available/SholehKhiz.conf /etc/nginx/sites-enabled/SholehKhiz.conf
+
+sudo service nginx start && sudo service nginx restart
+
+############## applying ssl certificate: (documentation on https://certbot.eff.org/)
+sudo apt-get install snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+sudo certbot certonly --nginx
+sudo certbot renew --dry-run
+
+
+#######################################
+
+cd && sudo apt update
+sudo add-apt-repository ppa:ondrej/php
+sudo apt install nginx mariadb-server mariadb-client php7.3-fpm php7.3-mysql
+sudo nano /etc/php/7.3/fpm/pool.d/www.conf
+############# Then make these changes there: #### ctrl+w can be used for searching #######
+
+listen = /run/php/php7.3-fpm.sock ==> ;listen = /run/php/php7.3-fpm.sock
+;##ADD THIS ==>
+listen = 127.0.0.1:9000
+
+##############################################################################
+
+sudo mysql_secure_installation
+# yes no no no yes
+sudo mysql
+
+CREATE DATABASE wordpress_db;
+CREATE USER 'server_user'@'localhost' IDENTIFIED BY '199271Raiden';
+GRANT ALL PRIVILEGES ON wordpress_db.* to server_user@'localhost';
+FLUSH PRIVILEGES;
+exit
+
+
+sudo git clone https://github.com/alienone306/wp.git /var/www/sholehkhiz.com
+sudo rm -r /var/www/sholehkhiz.com/wp-config.php
+############### or
+wget http://wordpress.org/latest.tar.gz && tar xzf latest.tar.gz
+sudo mv wordpress /var/www/sholehkhiz.com
+
+sudo chmod -R 755 /var/www/sholehkhiz.com && sudo chown www-data:www-data /var/www/sholehkhiz.com/ -R
+
+sudo service nginx start && sudo service nginx restart && sudo service php7.3-fpm restart
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ Site reload stop start
+TO RELOAD THE SIDE IF ANY CHANGES HAVE BEEN MADE:
+sudo supervisorctl restart SholehKhiz
+sudo service nginx restart
+
+AND TO STOP IT:
+sudo supervisorctl stop SholehKhiz
+sudo service nginx stop
+
+AND TO START IT AGAIN:
+sudo supervisorctl start SholehKhiz
+sudo service nginx start
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ Updating
+cd && source django_env/bin/activate && cd SholehKhiz
+python manage.py mediabackup
+python manage.py dbbackup
+
+cd && sudo cp -r SholehKhiz/media /media && sudo rm -r SholehKhiz
+cd && git clone https://github.com/alienone305/SholeKhiz.git SholehKhiz
+
+sudo cp -r /media SholehKhiz/media
+cd SholehKhiz/ && sudo rm -r SholehKhiz/settings.py && sudo mv SholehKhiz/settings0.py SholehKhiz/settings.py
+
+python manage.py mediarestore
+python manage.py dbrestore
+
+sudo supervisorctl restart SholehKhiz
+sudo service nginx restart

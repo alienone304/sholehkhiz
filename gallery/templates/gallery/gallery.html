@@ -1,0 +1,109 @@
+{% extends "BaseTemplates/base2.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+گالری | شعله خیز آذر
+</title>
+{% endblock %}
+{% block body_block %}
+
+<br>
+<h3 style="font-size:50px; text-shadow: 0 0 3px red, 5px 5px 9px black;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">گالری</h3>
+
+<div style="margin:2%; font-size:25px; border-bottom:1px solid #ff0a0a;" class="fHarmattan redC-text uk-text-right">
+  عکس های محصولات >
+</div><br>
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000">
+    <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+        {% for photo in photos %}
+{% if photo.for_product %}
+        <li class="uk-width-2-5 ">
+            <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
+                <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <p class="uk-margin-remove">{{photo.description}}</p>
+                </div>
+            </a>
+        </li>
+{% endif %}
+{% endfor %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+<br>
+<div style="margin:2%; font-size:25px; border-bottom:1px solid #ff0a0a;" class="fHarmattan redC-text uk-text-right">
+  عکس های کارخانه >
+</div><br>
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active; center: true;autoplay: true;autoplay-interval: 2000">
+    <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+        {% for photo in photos %}
+        {% if photo.for_factory %}
+        <li class="uk-width-2-5 ">
+            <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
+                <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <p class="uk-margin-remove">{{photo.description}}</p>
+                </div>
+            </a>
+        </li>
+        {% endif %}
+{% endfor %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+
+<div style="margin:2%; font-size:25px; border-bottom:1px solid #ff0a0a;" class="fHarmattan redC-text uk-text-right">
+  عکس های کارکنان >
+</div><br>
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000">
+    <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+        {% for photo in photos %}
+        {% if photo.for_workers %}
+        <li class="uk-width-2-5 ">
+            <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
+                <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <p class="uk-margin-remove">{{photo.description}}</p>
+                </div>
+            </a>
+        </li>
+        {% endif %}
+{% endfor %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+
+<div style="margin:2%; font-size:25px; border-bottom:1px solid #ff0a0a;" class="fHarmattan redC-text uk-text-right">
+  عکس های دیگر >
+</div><br>
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000">
+    <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+        {% for photo in photos %}
+        {% if photo.for_sundry %}
+        <li class="uk-width-2-5 ">
+            <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
+                <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <p class="uk-margin-remove">{{photo.description}}</p>
+                </div>
+            </a>
+        </li>
+        {% endif %}
+{% endfor %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+
+
+
+
+{% endblock %}

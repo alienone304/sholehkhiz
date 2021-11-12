@@ -1,0 +1,9 @@
+git push -u sholekhiz sholekhiz
+
+Recaptcha for pages like contact us or cooperation forms
+add social account url to footer and contact us
+pagination for certain pages
+
+sms sending problem
+form.errors text color to dark
+site icon

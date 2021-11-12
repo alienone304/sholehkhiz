@@ -1,0 +1,149 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>
+ثبت نام | شعله خیز آذر
+</title>
+{% endblock %}
+{% block body_block %}
+<br>
+<div style="padding:6%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+  <div class="uk-width-1-1  uk-block">
+<div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+    <h3 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">ثبت نام</h3>
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      {{user_form.Hfield}}
+              {{commonuser_form.Hfield}}
+      <div class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
+
+        <div class="uk-width-1-2@m" >
+                <div class="uk-width-2-3">
+      {{user_form.username}}
+      </div>
+          <div class="uk-width-1-6 redC-text " style="direction:ltr; font-size:18px;padding-top:5px; " >
+  +98
+          </div>
+          <div class="uk-width-1-6 goldC-text " style="direction:ltr; font-size:18px;padding-top:5px; " >
+            <span id="phonenumbervalidator" class="helper-text" data-error="wrong" data-success="right"></span>
+
+          </div>
+
+        </div>
+
+      <div class="uk-width-1-2@m">
+      {{user_form.name}}
+      </div>
+      <div class="uk-width-1-2@m">
+      {{user_form.password1}}
+      </div>
+      <div class="uk-width-1-2@m">
+      {{user_form.password2}}
+      </div>
+
+      <div class="uk-width-1-1@m">
+      {{commonuser_form.address}}
+      </div>
+      <div class="uk-width-1-2@m">
+      <label style="padding-top:8px;" class="uk-text-right fHarmattan">شرایط و قوانین را خوانده و قبول دارم  {{user_form.terms}}</label>
+      </div>
+
+
+
+
+      {% if commonuser_form.errors %}
+      <div class="uk-width-1-1 fHarmattan darkgreyC-text whiteC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{commonuser_form.errors}}</p>
+    </div>
+      {% endif %}
+      {% if user_form.errors %}
+      <div class="uk-width-1-1 fHarmattan darkgreyC-text whiteC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{user_form.errors}}</p>
+    </div>
+      {% endif %}
+
+      </div>
+      <br>
+      <div id="button">
+
+</div>
+
+    </form>
+</div>
+</div>
+</div>
+
+<br><br><br>
+<div class="uk-grid-match uk-text-center" uk-grid>
+
+
+  <div class="uk-width-expand" style=" border-top: solid white 1px;">
+
+  </div>
+  <div class="uk-align-center uk-width-1-5" style="margin-top:-20px;padding-left:30px;width:105px;" >
+<img  src="/media/Logo/fingerprint.png">
+  </div>
+  <div class="uk-width-expand" style=" border-top: solid white 1px;" >
+
+  </div>
+</div>
+
+<div class="uk-text-center">
+  <h3 style="margin-left:30px;" class="fHarmattan whiteC-text">حساب کاربری دارید؟</h3>
+    <a style="margin-left:30px;" class="uk-button uk-button-large redC-text whiteC fHarmattan uk-text-large" href="{% url 'accounts:login' %}">ورود</a>
+  </div>
+<br><br>
+{% endblock %}
+
+{% block script_block %}
+<script type="text/javascript">
+  function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // Get the output text
+  var text = document.getElementById("text");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+</script>
+
+<script>
+  function checkLength(el) {
+    if (el.value.length == 10) {
+var str = "<i class='right tiny material-icons goldC-text'>done_all</i>";
+var result = str.fontcolor("green");
+var str2 = "       <button style='margin-top:20px;' class='uk-button uk-button-primary fHarmattan redC' type='submit'>تایید</button>";
+var result2 = str2.fontcolor("green");
+document.getElementById("phonenumbervalidator").innerHTML = result;
+document.getElementById("button").innerHTML = result2;
+
+    }
+    if (isNaN(el.value) || el.value.length != 10 && el.value.length !=0) {
+var str = "<i class='right tiny material-icons redC-text'>close</i>";
+var result = str.fontcolor("red");
+document.getElementById("phonenumbervalidator").innerHTML = result;
+var str2 = "";
+var result2 = str2.fontcolor("green");
+document.getElementById("button").innerHTML = result2;
+
+    }
+
+
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+ایجاد محصول | شعله خیز آذر
+</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+<div style="padding:7%">
+
+
+<div style="padding: 1%;border-radius: 8px;" uk-grid>
+<div class=" uk-width-1-1 uk-block fHarmattan ">
+<div class="uk-card uk-card-body milkywhiteC ">
+<div class="uk-card uk-card uk-card-body uk-text-center">
+    <h1 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">ایجاد محصول</h1>
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
+      <div class="uk-width-1-2@m">
+{{products_form.name}}
+      </div>
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">
+            <label><input class="uk-radio" type="radio" id="1" name="type" value="1" checked>  رادیاتور پنلی</label>
+            <label><input class="uk-radio" type="radio" id="2" name="type" value="2">  حوله خشک کن</label>
+            <label><input class="uk-radio" type="radio" id="3" name="type" value="3">  پکیج</label>
+            <label><input class="uk-radio" type="radio" id="4" name="type" value="4">  آبگرمکن</label>
+      </div>
+      <div class="uk-width-1-2@m">عکس
+      {{products_form.picture}}
+      </div>
+      <div class="uk-width-1-2@m">کاتالوگ
+      {{products_form.cataloge}}
+      </div>
+      <div class="uk-width-1">
+      {{products_form.description}}
+      </div>
+      </div>
+      {% if products_form.errors %}
+      <div class="uk-width-1-1 fHarmattan darkgreyC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{products_form.errors}}</p>
+    </div>
+      {% endif %}
+      <button style="margin-top:20px;" class="uk-button uk-button-primary fHarmattan redC " type="submit">تایید
+    </button>
+    </form>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<br><br>
+
+    {% endblock %}
