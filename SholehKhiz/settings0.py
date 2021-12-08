@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'company',
     'dbbackup',
     'cooperation',
+    'chat',
 ]
 
 AUTH_USER_MODEL = 'accounts.UserModel'

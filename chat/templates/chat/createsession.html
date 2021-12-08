@@ -1,0 +1,66 @@
+ظ
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<script
+src="https://code.jquery.com/jquery-3.6.0.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
+<meta name=”robots” content=”noindex,follow”>
+<title>
+در انتظار | شعله خیز آذر
+</title>
+{% endblock %}
+{% block body_block %}
+<br><br>
+<div style="padding:6%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+  <div class="uk-width-1-1  uk-block">
+<div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+<div style="font-size:20px;" class="uk-text-justify fHarmattan">
+در انتظار جواب دادن پشتیبانی. از شکیبایی شما متشکریم.
+<br>
+پس از جواب دادن پشتیبانی به صورت خودکار به صفحه ی چت منتقل خواهید شد. لطفا منتظر بمانید.
+<br>
+در صورت انتقال نیافتن به صفحه ی مورد نظر لطفا پس از مدتی دوباره امتجان کنید.
+<br>
+با تشکر شرکت شعله خیز آذر
+</div>
+</div>
+
+</div>
+</div>
+<br><br><br>
+
+{% endblock %}
+
+
+{% block script_block %}
+<script type="text/javascript">
+$(document).ready(function(){
+
+setInterval(function(){
+$.ajax({
+  type:'GET',
+  url:'/chat/check-activity/{{chatsession.pk}}/',
+  success: function(response){
+    var checkactivity = response.is_active
+
+    if (checkactivity){
+
+    location.href = '/chat/chatting/{{chatsession.pk}}/';
+
+  }
+
+  },
+});
+},3000);
+
+});
+</script>
+{% endblock %}
+
+
+
+    <a href="{% url 'chat:chatting' chatsession.pk %}">hey</a>
+  </body>
+</html>

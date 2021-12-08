@@ -3,13 +3,13 @@
 {% block head_block %}
 <meta name=”robots” content=”noindex,follow”>
 <title>
-درخواست های سرویس کاری | شعله خیز آذر
+درخواست های نمایندگی خدمات | شعله خیز آذر
 </title>
 {% endblock %}
 
 {% block body_block %}
 <br>
-<h3 style="font-size:30px;" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">درخواست های سرویس کاری</h3>
+<h3 style="font-size:30px;" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">درخواست های نمایندگی خدمات</h3>
 <div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 {% if repairman_request_list %}
 {% for repairman_request in repairman_request_list %}
@@ -27,7 +27,7 @@
           <div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-left redC-text" >شماره همراه</div><div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-right darkgreyC-text">{{repairman_request.cellphone_number }}</div>
           <div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-left redC-text" >آدرس</div><div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-right darkgreyC-text">{{repairman_request.address }}</div>
           <div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-left redC-text" >وضعیت تاهل: مجرد</div><div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-right darkgreyC-text">{% if repairman_request.is_single %}بله{% else %}خیر{% endif %}</div>
-          <div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-left redC-text" >درخواست سرویس کاری برای:</div><div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-right darkgreyC-text">{% if repairman_request.for_towerdryer %}حوله خشک کن {% endif %}
+          <div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-left redC-text" >درخواست نمایندگی خدمات برای:</div><div class="uk-width-1-6@m uk-width-1-2@s uk-width-1-2 uk-text-right darkgreyC-text">{% if repairman_request.for_towerdryer %}حوله خشک کن {% endif %}
 {% if repairman_request.for_package %}پکیج {% endif %}
 {% if repairman_request.for_radiator %}رادیاتور {% endif %}
 {% if repairman_request.for_waterheater %}آبگرمکن {% endif %}
@@ -56,7 +56,7 @@
 <div  class="uk-card uk-card-default uk-card-body milkywhiteC">
 
 <div style="margin-top:-25px"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
-    <div class="uk-width-1- uk-text-center redC-text" >فعلا هیچ درخواست نمایندگی وجود ندارد.
+    <div class="uk-width-1- uk-text-center redC-text" >فعلا هیچ درخواست نمایندگی خدماتی وجود ندارد.
 <br>
 با تشکر از همکاری شما
 <br>

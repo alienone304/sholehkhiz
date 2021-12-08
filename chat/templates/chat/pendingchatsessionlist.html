@@ -1,0 +1,78 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+چت های در انتظار | شعله خیز آذر
+</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+<h3 style="font-size:30px;" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">چت های در انتظار</h3>
+<div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+{% if chatsession_list %}
+{% for chatsession in chatsession_list %}
+
+      <div class="uk-width-1-1 uk-width-1-3@m uk-width-1-2@s uk-block">
+<div style="border-radius:8px; " class="uk-card uk-card-default uk-card-body milkywhiteC">
+
+      <div style="margin-top:-25px; font-size:20px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
+        <div class="uk-width-1-2 uk-text-left">
+        جواب داده شده
+        </div>
+        <div class="uk-width-1-2 uk-text-right">
+        {% if chatsession.is_active %}
+        بله
+        {% else %}
+        خیر
+        {% endif %}
+        </div>
+        <div class="uk-width-1-2 uk-text-left">
+        زمان ایجاد درخواست
+        </div>
+        <div class="uk-width-1-2 uk-text-right">
+{{chatsession.started_at|date:'H:i'}}
+        </div>
+
+<br>
+{% if user.is_superuser %}
+<div class="uk-width-1-2 uk-text-right">
+<a class="uk-button uk-button-large blueC whiteC-text fHarmattan uk-width-1-1" href="{% url 'chat:activatechat' chatsession.pk %}" >جواب دادن</a>
+</div>
+<div class="uk-width-1-2 uk-text-right">
+<a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-width-1-1" href="{% url 'chat:deletechatsession' chatsession.pk %}" >حذف کردن</a>
+</div>
+{% endif %}
+
+      </div>
+
+
+
+</div>
+
+</div>
+
+{% endfor %}
+{% else %}
+<div class="uk-width-1-1 uk-block">
+<div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+
+<div style="margin-top:-25px"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
+    <div class="uk-width-1- uk-text-center redC-text" >فعلا هیچ چت در انتظاری وجود ندارد
+
+<br>
+شعله خیز آذر.
+    </div>
+
+
+</div>
+
+
+
+</div>
+
+</div>
+{% endif %}
+</div>
+    {% endblock %}

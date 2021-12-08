@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'delegations',
     'company',
     'cooperation',
+    'chat',
 ]
 
 AUTH_USER_MODEL = 'accounts.UserModel'

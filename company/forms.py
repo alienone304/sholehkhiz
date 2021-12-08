@@ -1,5 +1,5 @@
 from django import forms
-from company.models import ContactUsModel
+from company.models import ContactUsModel, ComplaintModel
 
 class ContactUsForm(forms.ModelForm):
     class Meta():
@@ -11,4 +11,15 @@ class ContactUsForm(forms.ModelForm):
             'request': forms.Textarea(attrs={'class':'uk-textarea fHarmattan','rows':'4','placeholder':'متن درخواست یا پیشنهاد'},),
             'email': forms.EmailInput(attrs={'class':'uk-input fHarmattan','placeholder':'ایمیل'},),
 
+        }
+
+class ComplaintForm(forms.ModelForm):
+    class Meta():
+        model = ComplaintModel
+        fields = ('name','picture','phone_number','request')
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'uk-input fHarmattan redC-text','placeholder':'نام و نام خانوادگی'},),
+            'phone_number': forms.TextInput(attrs={'class':'uk-input fHarmattan','placeholder':'شماره تماس'},),
+            'request': forms.Textarea(attrs={'class':'uk-textarea fHarmattan','rows':'4','placeholder':'متن شکایت'},),
+            'picture': forms.FileInput(attrs={'class':'uk-button',},),
         }

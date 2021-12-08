@@ -24,11 +24,16 @@ from accounts.forms import ForgotPasswordForm, PasswordChangeForm
 from accounts.models import UserModel
 from commonuser.models import CommonUserModel
 from company.utils import SendMessage
+from chat.models import ChatSessionModel
+from chat.views import DeleteInactiveChats
+
 
 @login_required
 @superuser_required
 def SuperUserDashboardView(request):
-    return render(request,'accounts/superuserdashboard.html')
+    DeleteInactiveChats(request)
+    active_chats = ChatSessionModel.objects.count()
+    return render(request,'accounts/superuserdashboard.html',{'active_chats':active_chats})
 
 
 def ForgotPasswordView(request):

@@ -32,5 +32,6 @@ urlpatterns = [
     path('gallery/', include('gallery.urls',namespace = 'gallery')),
     path('delegations/', include('delegations.urls',namespace = 'delegations')),
     path('cooperation/', include('cooperation.urls',namespace = 'cooperation')),
+    path('chat/', include('chat.urls',namespace = 'chat')),
     path('',include('django.contrib.auth.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,12 +1,16 @@
 from django.urls import include, path
 from company.views import (ContactUsView, AboutUsView, ContactUsListView,
-                            ContactUsDeleteView)
+                            ContactUsDeleteView, ComplaintView, ComplaintDeleteView,
+                            ComplaintListView)
 
 app_name ='company'
 urlpatterns = [
     path('about-us/',AboutUsView, name = 'about-us'),
     path('contact-us/',ContactUsView, name = 'contact-us'),
+    path('complaint/',ComplaintView, name = 'complaint'),
     path('contact-us-list/',ContactUsListView, name = 'contact-us-list'),
-    path('contact-us-delete/<int:pk>',ContactUsDeleteView, name = 'contact-us-delete'),
+    path('complaint-list/',ComplaintListView, name = 'complaint-list'),
+    path('contact-us-delete/<int:pk>/',ContactUsDeleteView, name = 'contact-us-delete'),
+    path('complaint-delete/<int:pk>/',ComplaintDeleteView, name = 'complaint-delete'),
 
 ]

@@ -1,0 +1,134 @@
+
+
+
+{% extends "BaseTemplates/base3.html" %}
+
+{% block head_block %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script
+src="https://code.jquery.com/jquery-3.6.0.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
+<meta name=”robots” content=”noindex,follow”>
+<title>
+چت روم | شعله خیز آذر
+</title>
+{% endblock %}
+
+{% block body_block %}
+<div class="">
+
+    <div id="display" >
+
+    </div>
+
+  </div>
+<div style="height: 50px;">
+
+</div>
+  <div style="position:fixed; bottom:10px;left:2.5%; width:90%;">
+
+  <form id="post-form"  uk-grid>
+      {% csrf_token %}
+      <textarea id="message" placeholder="متن" class="uk-width-5-6 uk-textarea"></textarea>
+      <button style="font-size:20px;" class="uk-width-1-6  fHarmattan " type="submit">
+        <i style="font-size:50px; color:#00a9de;transform: rotate(270deg);" class="material-icons redC-text">send</i>
+    </button>
+  </form>
+
+    {% endblock %}
+
+{% block script_block %}
+<style media="screen">
+button{
+  background-color: #ffffff;
+  border:white 1px solid;
+  border-radius: 5px;
+}
+#display{
+  margin:5%;
+  margin-left:9%;
+}
+.user-message{
+display: inline-flex;
+margin-right: -4%;
+background-color:#00a9de;
+color:white;
+border-radius: 10px;
+padding: 10px;
+white-space: pre-wrap;
+font-size: 22px;
+}
+.super-message{
+display: inline-flex;
+background-color:#dedede;
+color:black;
+border-radius: 10px;
+padding: 10px;
+margin-left: -4%;
+white-space: pre-wrap;
+font-size: 22px;
+}
+#message{
+  font-family: 'Lateef', cursive;
+  font-size:21px;
+  background-color: #ebebeb;
+  border-radius: 9px;
+  border:grey 2px solid;
+}
+</style>
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+       type:'POST',
+       url:'/chat/send-message/{{chatsession.pk}}/',
+       data:{
+         message:$('#message').val(),
+         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+       },
+    });
+
+  });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    lastmessage = 2;
+setInterval(function(){
+$.ajax({
+  type:'GET',
+  url:'/chat/get-user-message/{{chatsession.pk}}/',
+  success: function(response){
+
+    $("#display").empty();
+    for (var key in response.messages){
+      var messagepk = response.messages[key].id
+
+      if (response.messages[key].of_superuser){
+        var temp = "<div style='text-align: left;'><div class='user-message uk-text-right fHarmattan'>"+response.messages[key].message+"</div></div></br>";
+        $("#display").append(temp);
+      }
+      else{
+        var temp = "<div style='text-align: right;'><div class='super-message uk-text-left fHarmattan'>"+response.messages[key].message+"</div></div></br>";
+        $("#display").append(temp);
+      }
+
+    }
+    if (lastmessage !== messagepk){
+    var x = $("#display")[0].scrollHeight
+    lastmessage = messagepk
+    window.scrollTo(0,document.body.scrollHeight);
+
+  }
+
+  },
+});
+},300);
+
+});
+</script>
+{% endblock %}

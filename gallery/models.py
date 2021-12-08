@@ -8,3 +8,4 @@ class GalleryModel(models.Model):
     for_factory = models.BooleanField(default = False)
     for_workers = models.BooleanField(default = False)
     for_sundry = models.BooleanField(default = False)
+    for_excebition = models.BooleanField(default = False)

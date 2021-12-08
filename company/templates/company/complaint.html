@@ -1,0 +1,67 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+شکایت | شعله خیز
+</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+<div style="padding:7%">
+
+
+<div style="padding: 1%;border-radius: 8px;" uk-grid>
+<div class=" uk-width-1-1 uk-block fHarmattan ">
+<div class="uk-card uk-card-body milkywhiteC ">
+<div class="uk-card uk-card uk-card-body uk-text-center">
+    <h1 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">فرم شکایت</h1>
+    <p style="font-size:20px;" class="black-text uk-card-title uk-text-right fHarmattan">اگر از شرکت شعله خیز آذر شکایتی دارید یا هر یک از محصولات ما
+    دارای ایراد بود با عرض پوزش از مشکل به وجود آمده فرم زیر را تکمیل نمایید تا همکاران ما در اسرع وقت با شما تماس گرفته و مشکل به وجود آمده را حل کنند.
+<br>
+  با تشکر شرکت شعله خیز آذر</p>
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div  class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
+
+      <div class="uk-width-1">
+{{complaint_form.name}}
+      </div>
+
+      <div class="uk-width-1-2@m">
+      {{complaint_form.phone_number}}
+      </div>
+
+      <div class="uk-width-1-2@m">
+  <span>  عکس  {{complaint_form.picture}}</span> 
+      </div>
+
+      <div class="uk-width-1">
+      {{complaint_form.request}}
+      </div>
+
+      </div>
+      <br>
+      {% if complaint_form.errors %}
+      <div class="uk-width-1-1 fHarmattan redC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{complaint_form.errors}}</p>
+    </div>
+      {% endif %}
+      <button style="margin-top:20px;" class="uk-button uk-button-primary fHarmattan redC " type="submit">تایید
+    </button>
+    </form>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<br><br>
+
+    {% endblock %}

@@ -12,10 +12,8 @@
 <h1 style="text-shadow: 0 0 20px blue, 0 0 30px black" class="uk-text-center whiteC-text fHarmattan">داشبورد</h1>
 <br><br>
 <div class="uk-grid-match uk-grid-small uk-text-center redC" uk-grid>
-  <div class="uk-width-1-6 uk-width-1-4@m">
-
-  </div>
-      <div class="uk-width-2-3 uk-width-1-2@m ">
+      <div style="padding-left:9%;padding-right:10%;" class="uk-width-1-1 ">
+        <a href="{% url 'chat:pendingchatsessionlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست چت های در انتظار{% if active_chats %}  <span style="background-color:red; border-radius:10px;" class="whiteC-text fHarmattan">{{active_chats}}</span>{% endif %}</a>
 <a href="{% url 'products:create' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">ایجاد محصول</a>
 <a href="{% url 'products:listsuperuser' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">محصولات</a>
 <a href="{% url 'order:checkedlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">سفارشات چک شده</a>
@@ -25,11 +23,13 @@
 <a href="{% url 'delegations:add' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">افزودن نمایندگی</a>
 <a href="{% url 'delegations:listsuperuser' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست نمایندگی ها</a>
 <a href="{% url 'company:contact-us-list' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست تماس با ما</a>
+<a href="{% url 'company:complaint-list' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست شکایات</a>
 <a href="{% url 'cooperation:createjobopportunity' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">ایجاد فرصت های شغلی</a>
 <a href="{% url 'cooperation:jobopportunitylistsuperuser' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست فرصت های شغلی</a>
 <a href="{% url 'cooperation:applicationlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست درخواست های همکاری</a>
-<a href="{% url 'cooperation:delegationrequestlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست درخواست های نمایندگی</a>
-<a href="{% url 'cooperation:repairmanrequestlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست درخواست های سرویس کاری</a>
+<a href="{% url 'cooperation:delegationrequestlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست درخواست های نمایندگی فروش</a>
+<a href="{% url 'cooperation:repairmanrequestlist' %}" class="uk-button whiteC uk-width-1-1 uk-margin-small-bottom redC-text fHarmattan uk-text-large">لیست درخواست های نمایندگی خدمات</a>
+
 </div>
 <div class="uk-width-1-6 uk-width-1-4@m">
 

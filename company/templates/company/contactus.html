@@ -1,13 +1,154 @@
-{% extends "BaseTemplates/base1.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" class="redC" style="overflow-x: hidden;">
+  <head>
 
-{% block head_block %}
-<meta name=”robots” content=”noindex,follow”>
-<title>
-تماس با ما | شعله خیز
-</title>
-{% endblock %}
+    <meta name=”robots” content=”noindex,follow”>
+    <title>
+    تماس با ما | شعله خیز
+    </title>
 
-{% block body_block %}
+    {% load static %}
+    <!DOCTYPE html>
+        <meta charset="utf-8">
+        <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="https://sholehkhiz.com/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/media/Logo/logo.png" sizes="16x16"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Harmattan&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lalezar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Markazi+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Harmattan&display=swap" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/uikit-rtl.css' %}" media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+        <script src="{% static 'js/uikit.min.js' %}" ></script>
+        <script src="{% static 'js/uikit-icons.min.js' %}" ></script>
+      </head>
+      <body style="background-color: #ff0a0a;" class="redC">
+        <header>
+            <!-- Main Navbar -->
+            <nav class="uk-navbar-container uk-margin" style="position: fixed;right: 0;left: 0;top: 0;z-index: 1030;box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" uk-navbar>
+                <div class="uk-navbar-center">
+                  <div class="uk-navbar-center-left"><div>
+    <ul  class="uk-navbar-nav uk-visible@m">
+      <li>
+    <a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " class="  " href="#">محصولات و سفارش</a>
+    <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#f2f2f2;">
+        <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:radiatorlist' %}">رادیاتور پنلی</a></li>
+            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:towerdryerlist' %}">حوله خشک کن</a></li>
+            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:packagelist' %}">پکیج دیواری</a></li>
+            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:waterheaterlist' %}">آبگرمکن</a></li>
+        </ul>
+    </div>
+</li>
+<li>
+<a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " class="  " href="#">همکاری</a>
+<div  class="uk-navbar-dropdown" style="margin-top:-10px; background-color:#f2f2f2;">
+  <ul class="uk-nav uk-navbar-dropdown-nav ">
+      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'cooperation:jobopportunitylist' %}">فرصت های شغلی</a></li>
+      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'cooperation:createdelegationrequest' %}">درخواست نمایندگی فروش</a></li>
+      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'cooperation:createrepairmanrequest' %}">درخواست نمایندگی خدمات</a></li>
+  </ul>
+</div>
+</li>
+
+      <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'gallery:gallery' %}">گالری</a></li>
+<li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="https://sholehkhiz.com/blog/">مقالات</a></li>
+    </ul>
+          <a href="#" class="uk-navbar-toggle uk-hidden@m redC-text" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+</div></div>
+        <a class="uk-navbar-item uk-logo" href="{% url 'home' %}"><img src="/media/Logo/logo.png" width="90"></a>
+        <div class="uk-navbar-center-right"><div>
+    <ul class="uk-navbar-nav">
+      <ul class="uk-navbar-nav uk-visible@m">
+        <li>
+      <a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " class="  " href="#">شعله خیز</a>
+      <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#f2f2f2;">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'company:about-us' %}">درباره ما</a></li>
+              <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'company:complaint' %}">شکایت</a></li>
+              <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'company:contact-us' %}">تماس با ما</a></li>
+
+          </ul>
+      </div>
+  </li>
+        {% if user.is_authenticated and user.is_superuser%}
+          <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'accounts:superuserdashboard' %}">داشبورد</a></li>
+          {% endif %}
+        {% if user.is_authenticated %}
+        <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'logout' %}">خروج</a></li>
+        {% if user.is_commonuser %}
+        <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'commonuser:profile' user.slug %}">پروفایل</a></li>
+        {% endif %}
+        {% else %}
+          <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'accounts:login' %}">ورود</a></li>
+          <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'commonuser:signup' %}">عضویت</a></li>
+          {% endif %}
+          <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'delegations:publiclist' %}">مراکز خدمات</a></li>
+
+
+
+      </ul>
+
+    </ul>
+</div></div>
+
+</div>
+
+            </nav>
+        </header>
+
+        <div style="z-index:5000" id="sidenav" uk-offcanvas="flip: true" style="box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas milkywhiteC">
+            <div style="box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas-bar milkywhiteC">
+                <ul class="uk-nav">
+                  {% if user.is_authenticated and user.is_superuser%}
+                    <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'accounts:superuserdashboard' %}">داشبورد</a></li>
+                    {% endif %}
+                  {% if user.is_authenticated %}
+                  <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'logout' %}">خروج</a></li>
+                  {% if user.is_commonuser %}
+                  <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'commonuser:profile' user.slug %}">پروفایل</a></li>
+                  {% endif %}
+                  {% else %}
+                    <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'accounts:login' %}">ورود</a></li>
+                    <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'commonuser:signup' %}">عضویت</a></li>
+                    {% endif %}
+                    <li><span style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;">محصولات و سفارش</span></li>
+                                    </ul>
+
+                                    <ul>
+                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:radiatorlist' %}">رادیاتور پنلی</a></li>
+                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:towerdryerlist' %}">حوله خشک کن</a></li>
+                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:packagelist' %}">پکیج دیواری</a></li>
+                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'products:waterheaterlist' %}">آبگرمکن</a></li>
+                                    </ul>
+                    <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'delegations:publiclist' %}">مراکز خدمات</a></li>
+                    <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="https://sholehkhiz.com/blog/">مقالات</a></li>
+
+
+                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'company:contact-us' %}">تماس با ما</a></li>
+                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'company:complaint' %}">شکایت</a></li>
+                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'company:about-us' %}">درباره ما</a></li>
+
+                <ul class="uk-nav">
+                  <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'gallery:gallery' %}">گالری</a></li>
+            <li><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;" class=" " href="{% url 'company:about-us' %}">درباره ما</a></li>
+            <li><span style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;;">همکاری</span></li>
+                </ul>
+                <ul >
+                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'cooperation:jobopportunitylist' %}">فرصت های شغلی</a></li>
+                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'cooperation:createdelegationrequest' %}">درخواست نمایندگی فروش</a></li>
+                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Lateef', cursive; font-size:22px;; " href="{% url 'cooperation:createrepairmanrequest' %}">درخواست نمایندگی خدمات</a></li>
+                </ul>
+            </div>
+        </div>
+<br><br><br><br>
+
 <br>
 <div style="padding:7%">
 
@@ -62,10 +203,15 @@
 <div style="margin-bottom:0px;padding-left:2%;padding-right:2%;" class="uk-grid-match uk-grid-small uk-text-center milkywhiteC fHarmattan uk-text-large " uk-grid>
   <div class="uk-width-1 uk-width-1-3@m">
 <ul class="uk-list fHarmattan uk-text-center"><br><span class="uk-margin-small-right redC-text" uk-icon="icon:receiver;ratio:2"></span><br><br>
-  <li>  شماره های تماس</li>
-<li>041-42544436</li>
-<li>041-42544437</li>
-<li>041-42544504</li>
+  <li>شماره تماس واحد فروش</li>
+  <li>جودتی 09145671121</li>
+  <li>زینالپور 09355300560</li>
+  <li>میرزایی 09146301950</li>
+  <li>
+  <a href="https://t.me/sholehkhizco/" class="redC-text"> <img width="55" src="/media/Logo/telegram.png" alt=""></a>
+  <a href="https://www.instagram.com/sholehkhizazar/" class="redC-text"><img width="55" src="/media/Logo/instagram.png" alt=""></a>
+</li>
+
 </ul>
   </div>
 
@@ -81,11 +227,23 @@
     <ul class="uk-list fHarmattan uk-text-center"><br><span class="uk-margin-small-right redC-text" uk-icon="icon:print;ratio:2"></span><br><br>
       <li>  فکس</li>
     <li>041-42544340</li>
-    <li>
-    <a href="https://t.me/sholehkhizco/" class="redC-text"> <img width="55" src="/media/Logo/telegram.png" alt=""></a>
-    <a href="https://www.instagram.com/sholehkhizazar/" class="redC-text"><img width="55" src="/media/Logo/instagram.png" alt=""></a>
-</li>
+    <li>شماره تماس شرکت</li>
+
+    <li>041-42544436</li>
+    <li>041-42544437</li>
+    <li>041-42544504</li>
+
     </ul>
   </div>
   </div>
-    {% endblock %}
+  <span class="uk-grid-match uk-grid-small uk-text-center redC"  uk-grid>
+
+    <div class="uk-width-1-3 whiteC-text fHarmattan uk-text-center" style="padding-right:5%; font-size:18px;">
+طراحی سایت نواح
+09368361943
+    </div>
+        <div class="uk-width-2-3  whiteC-text fHarmattan uk-text-justify" style="padding-right:5%;font-size:24px;">
+          تمام حقوق تحت شرکت شعله خیز آذر محفوظ است.
+    </div>
+
+  </span>
