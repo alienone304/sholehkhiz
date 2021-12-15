@@ -33,7 +33,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(x8-efeddkf2)30=^1ekb2707ag9!jhn*(4l(-zn0wb4u$f7xq'
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config['DEBUG']
@@ -167,9 +167,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #NiazPardaz
-NIAZPARDAZ_USERNAME = 'radiator'
-NIAZPARDAZ_PASSWORD = '63555'
-NIAZPARDAZ_LINENUMBER = '5000209651'
+NIAZPARDAZ_USERNAME = config['NIAZPARDAZ_USERNAME']
+NIAZPARDAZ_PASSWORD = config['NIAZPARDAZ_PASSWORD']
+NIAZPARDAZ_LINENUMBER = config['NIAZPARDAZ_LINENUMBER']
 
 #Backup
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'

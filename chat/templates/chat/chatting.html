@@ -109,11 +109,11 @@ $.ajax({
       var messagepk = response.messages[key].id
 
       if (response.messages[key].of_superuser){
-        var temp = "<div style='text-align: left;'><div class='user-message uk-text-right fHarmattan'>"+response.messages[key].message+"</div></div></br>";
+        var temp = "<div style='text-align: left;'><div class='user-message uk-text-right fHarmattan'><div style='color:#cfcfcf; font-size:18px;' >مدیر:</div><div style='margin: 0 8px 0 0;'></div>"+response.messages[key].message+"</div></div></br>";
         $("#display").append(temp);
       }
       else{
-        var temp = "<div style='text-align: right;'><div class='super-message uk-text-left fHarmattan'>"+response.messages[key].message+"</div></div></br>";
+        var temp = "<div style='text-align: right;'><div class='super-message uk-text-right fHarmattan'><div style='color:grey; font-size:18px;' >کاربر:</div><div style='margin: 0 8px 0 0;'></div>"+response.messages[key].message+"</div></div></br>";
         $("#display").append(temp);
       }
 
