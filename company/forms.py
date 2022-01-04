@@ -1,7 +1,10 @@
 from django import forms
+from django.core import validators
 from company.models import ContactUsModel, ComplaintModel
 
 class ContactUsForm(forms.ModelForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
+
     class Meta():
         model = ContactUsModel
         fields = ('name','email','phone_number','request')
@@ -14,6 +17,7 @@ class ContactUsForm(forms.ModelForm):
         }
 
 class ComplaintForm(forms.ModelForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
     class Meta():
         model = ComplaintModel
         fields = ('name','picture','phone_number','request')

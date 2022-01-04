@@ -60,6 +60,7 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
 
 
     username = forms.CharField(widget=forms.TextInput(

@@ -1,7 +1,9 @@
 from django import forms
+from django.core import validators
 from cooperation.models import JobOpportunityModel, ApplicationModel, DelegationRequestModel, RepairManRequestModel
 
 class JobOpportunityForm(forms.ModelForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
     class Meta():
         model = JobOpportunityModel
         fields = ('job_title','required_skills','descriprion',)
@@ -13,6 +15,7 @@ class JobOpportunityForm(forms.ModelForm):
 
 
 class DelegationRequestForm(forms.ModelForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
     class Meta():
         model = DelegationRequestModel
         fields = ('name','last_name','email','age',
@@ -49,6 +52,7 @@ class DelegationRequestForm(forms.ModelForm):
 
 
 class ApplicationForm(forms.ModelForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
     class Meta():
         model = ApplicationModel
 
@@ -83,6 +87,7 @@ class ApplicationForm(forms.ModelForm):
 
 
 class RepairManRequestForm(forms.ModelForm):
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
     class Meta():
         model = RepairManRequestModel
 

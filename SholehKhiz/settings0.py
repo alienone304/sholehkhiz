@@ -36,7 +36,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config['DEBUG']
+DEBUG = False
 
 ALLOWED_HOSTS = [config['ALLOWED_HOST1'],config['ALLOWED_HOST2'],config['ALLOWED_HOST3']]
 # Application definition

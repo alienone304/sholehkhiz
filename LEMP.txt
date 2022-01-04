@@ -56,8 +56,8 @@ cd django_env && sudo nano config.json
   "DATABASE_USER": "server_user",
   "DATABASE_PASSWORD": "192837465Sh@leh",
   "EMAIL_USER": "info@sholehkhiz.com",
-  "NIAZPARDAZ_USERNAME":"radiator",
-  "NIAZPARDAZ_PASSWORD":"63555",
+  "NIAZPARDAZ_USERNAME":"c.radiator",
+  "NIAZPARDAZ_PASSWORD":"njh$968",
   "NIAZPARDAZ_LINENUMBER":"5000209651",
   "EMAIL_PASSWORD": "199271Raiden"
 }

@@ -14,6 +14,7 @@
 <div  class="uk-card uk-card-default uk-card-body milkywhiteC">
     <h3 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">ثبت نام</h3>
     <form enctype="multipart/form-data" method="POST">
+      
       {% csrf_token %}
       {{user_form.Hfield}}
               {{commonuser_form.Hfield}}

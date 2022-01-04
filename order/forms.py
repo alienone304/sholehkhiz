@@ -1,9 +1,9 @@
 from django import forms
 from order.models import OrderingModel
-
+from django.core import validators
 
 class OrderingForm(forms.ModelForm):
-
+    Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
     class Meta:
         model = OrderingModel
         fields = ('description', 'number')
