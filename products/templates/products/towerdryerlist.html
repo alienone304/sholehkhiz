@@ -1,4 +1,4 @@
-{% extends "BaseTemplates/base1.html" %}
+{% extends "BaseTemplates/base2.html" %}
 
 {% block head_block %}
 <meta name=”robots” content=”noindex,follow”>
@@ -9,8 +9,25 @@
 
 {% block body_block %}
 
-<h3 style="font-size:40px; text-shadow: 0 0 20px black, 0 0 30px black" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">حوله خشک کن</h3>
 <div style="padding:4%" class="uk-grid-match uk-text-center uk-grid-small" uk-grid>
+  <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-block fHarmattan uk-text-right">
+    <ul style="font-size:20px; margin:5%;">
+      <p style="margin:25px;" class="redC-text uk-text-bold" >حوله خشک کن شعله خیز آذر</p>
+      <p style="margin:25px;" class="redC-text uk-text-bold" >10 سال گارانتی</p>
+
+  <li style="margin:8px;">کیفیت تولید مطابق با آخرین تکنولوژی روز دنیا
+  </li>
+  <li style="margin:8px;">مطابق با استاندارد های ملی ایران
+  </li>
+  <li style="margin:8px;">طراحی کلاسیک و چشم نواز
+  </li>
+  <li style="margin:8px;">در اندازه های مختلف
+  </li>
+
+
+</ul>
+
+</div>
 {% for product in products %}
 
       <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-block fHarmattan">
@@ -23,18 +40,18 @@
             </div>
             <div class="uk-card-body">
               <div  class="uk-grid uk-grid-small darkgreyC-text" uk-grid>
-                <div class="uk-card-title fHarmattan uk-text-bold uk-width-1-1 uk-text-right redC-text" style="color:#ff0a0a;font-size:30px;">
+                <div class="uk-card-title fHarmattan uk-text-bold uk-width-1-1 uk-text-right redC-text" style="color:#ff0a0a;font-size:25px;">
 {{product.name}}
 </div>
 
-                <div class="uk-text-right uk-text-justify " style="font-size:25px;">{{product.description|linebreaks}}</div>
+                <div class="uk-text-right uk-text-justify " style="font-size:20px;">{{product.description|linebreaks}}</div>
 
               </div>
             </div>
         </div>
 
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{% url 'ordering:order' product.pk %}">سفارش</a>
+        <a style="border-top:solid 4px #fafafa; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
+        <a style="border-top:solid 4px #fafafa; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{% url 'ordering:order' product.pk %}">سفارش</a>
 
 </div>
 {% endfor %}

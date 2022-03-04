@@ -4100,8 +4100,8 @@ select.uk-form-width-xsmall {
  * Flip modifier
  */
 .uk-offcanvas-flip .uk-offcanvas {
-  left: 0;
-  right: auto;
+  right: 0;
+  left: auto;
 }
 /* Bar
  ========================================================================== */
@@ -4135,13 +4135,13 @@ select.uk-form-width-xsmall {
 }
 /* Flip modifier */
 .uk-offcanvas-flip .uk-offcanvas-bar {
-  right: auto;
-  left: -270px;
+  left: auto;
+  right: -270px;
 }
 /* Tablet landscape and bigger */
 @media (min-width: 960px) {
   .uk-offcanvas-flip .uk-offcanvas-bar {
-    left: -350px;
+    right: -350px;
   }
 }
 /*
@@ -4151,8 +4151,8 @@ select.uk-form-width-xsmall {
   right: 0;
 }
 .uk-offcanvas-flip .uk-open > .uk-offcanvas-bar {
-  right: auto;
-  left: 0;
+  left: auto;
+  right: 0;
 }
 /*
  * Slide Animation (Used in slide and push mode)
@@ -4161,7 +4161,7 @@ select.uk-form-width-xsmall {
   transition: right 0.3s ease-out;
 }
 .uk-offcanvas-flip .uk-offcanvas-bar-animation {
-  transition-property: left;
+  transition-property: right;
 }
 /*
  * Reveal Animation
@@ -4188,8 +4188,8 @@ select.uk-form-width-xsmall {
 }
 .uk-offcanvas-flip .uk-offcanvas-reveal .uk-offcanvas-bar {
   /* 4 */
-  right: auto;
-  left: 0;
+  left: auto;
+  right: 0;
 }
 .uk-open > .uk-offcanvas-reveal {
   width: 270px;
@@ -4204,8 +4204,8 @@ select.uk-form-width-xsmall {
  * Flip modifier
  */
 .uk-offcanvas-flip .uk-offcanvas-reveal {
-  left: 0;
-  right: auto;
+  right: 0;
+  left: auto;
 }
 /* Close
  * Adopts `uk-close`
@@ -4280,18 +4280,18 @@ select.uk-form-width-xsmall {
  * Activate slide-out animation
  */
 :not(.uk-offcanvas-flip).uk-offcanvas-container-animation {
-  right: 270px;
+  left: 270px;
 }
 .uk-offcanvas-flip.uk-offcanvas-container-animation {
-  right: -270px;
+  left: -270px;
 }
 /* Tablet landscape and bigger */
 @media (min-width: 960px) {
   :not(.uk-offcanvas-flip).uk-offcanvas-container-animation {
-    right: 350px;
+    left: 350px;
   }
   .uk-offcanvas-flip.uk-offcanvas-container-animation {
-    right: -350px;
+    left: -350px;
   }
 }
 /* ========================================================================

@@ -1,4 +1,4 @@
-{% extends "BaseTemplates/base1.html" %}
+{% extends "BaseTemplates/base2.html" %}
 
 {% block head_block %}
 <meta name=”robots” content=”noindex,follow”>
@@ -9,8 +9,40 @@
 
 {% block body_block %}
 
-<h3 style="font-size:40px; text-shadow: 0 0 20px black, 0 0 30px black" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">رادیاتور پنلی</h3>
+
 <div style="padding:4%" class="uk-grid-match uk-text-center uk-grid-small" uk-grid>
+  <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-block fHarmattan uk-text-right">
+    <ul style="font-size:20px; margin:5%;">
+      <p style="margin:25px;" class="redC-text uk-text-bold" >رادیاتور پنلی شعله خیز آذر</p>
+      <p style="margin:25px;" class="redC-text uk-text-bold" >12 سال گارانتی تعویض</p>
+      <p style="margin:25px;" class="redC-text uk-text-bold">تحت پوشش بیمه ایران به مدت 5 سال تا سقف 10 میلیون تومان</p>
+
+  <li style="margin:8px;">کاهش تعداد دفعات هواگیری نسبت به رادیاتور های آلومینیومی
+  </li>
+  <li style="margin:8px;">سازگاری بیشتر با انواع پکیج به دلیل نوع خاص آلیاژ
+  </li>
+  <li style="margin:8px;">ورق های استفاده شده طبق استاندارد ST 12-13
+  </li>
+  <li style="margin:8px;">قابلیت تولید به صورت یک طرف و دو طرف نصب
+  </li>
+  <li style="margin:8px;">ظرفیت حرارتی 1920 کیلو کالری بر ساعت
+  </li>
+  <li style="margin:8px;">مطابق با استاندارد های ملی ایران
+  </li>
+  <li style="margin:8px;">دارای گرید انرژی B
+  </li>
+  <li style="margin:8px;">
+    در ارتفاع و آکس های مختلف
+  </li>
+  <p style="margin:5px;margin-right:25px;">ارتفاع 50 آکس 45
+  </p>
+  <p style="margin:5px;margin-right:25px;">ارتفاع 55 آکس 50
+  </p>
+  <p style="margin:5px;margin-right:25px;">ارتفاع 60 آکس 55
+  </p>
+</ul>
+
+</div>
 {% for product in products %}
 
       <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-block fHarmattan">
@@ -23,18 +55,18 @@
             </div>
             <div class="uk-card-body">
               <div  class="uk-grid uk-grid-small darkgreyC-text" uk-grid>
-                <div class="uk-card-title fHarmattan uk-text-bold uk-width-1-1 uk-text-right redC-text" style="color:#ff0a0a;font-size:30px;">
+                <div class="uk-card-title fHarmattan uk-text-bold uk-width-1-1 uk-text-right redC-text" style="color:#ff0a0a;font-size:25px;">
 {{product.name}}
 </div>
 
-                <div class="uk-text-right uk-text-justify " style="font-size:25px;">{{product.description|linebreaks}}</div>
+                <div class="uk-text-right uk-text-justify " style="font-size:20px;">{{product.description|linebreaks}}</div>
 
               </div>
             </div>
         </div>
 
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{% url 'ordering:order' product.pk %}">سفارش</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class=" uk-button uk-button-large whiteC redC-text fHarmattan uk-text-bold " href="{{product.cataloge.url}}">کاتالوگ</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class=" uk-button uk-button-large whiteC redC-text fHarmattan uk-text-bold" href="{% url 'ordering:order' product.pk %}">سفارش</a>
 
 </div>
 {% endfor %}

@@ -12,9 +12,9 @@
 <div style="padding:6%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
   <div class="uk-width-1-1  uk-block">
 <div  class="uk-card uk-card-default uk-card-body milkywhiteC">
-    <h3 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">ثبت نام</h3>
+    <p style="font-size:27px; color:#ff0a0a;" class="redC-text uk-card-title uk-align-center fHarmattan">ثبت نام</p>
     <form enctype="multipart/form-data" method="POST">
-      
+
       {% csrf_token %}
       {{user_form.Hfield}}
               {{commonuser_form.Hfield}}
