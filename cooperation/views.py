@@ -92,6 +92,14 @@ def ApplicationListView(request):
         return render(request,'cooperation/applicationlist.html')
 
 
+@login_required
+@superuser_required
+def ApplicationDeleteView(request, pk):
+    application = get_object_or_404(ApplicationModel, pk = pk)
+    application.delete()
+    return HttpResponseRedirect(reverse('cooperation:applicationlist'))
+
+
 def CreateDelegationRequestView(request):
     if request.method == 'POST':
         delegation_request_form = DelegationRequestForm(data = request.POST)
@@ -118,6 +126,14 @@ def DelegationRequestListView(request):
         return render(request,'cooperation/delegationrequestlist.html')
 
 
+@login_required
+@superuser_required
+def DelegationRequestDeleteView(request, pk):
+    delegation_request = get_object_or_404(DelegationRequestModel, pk = pk)
+    delegation_request.delete()
+    return HttpResponseRedirect(reverse('cooperation:delegationrequestlist'))
+
+
 def CreateRepairManRequestView(request):
     if request.method == 'POST':
         repairman_request_form = RepairManRequestForm(data = request.POST)
@@ -142,3 +158,11 @@ def RepairManRequestListView(request):
                       {'repairman_request_list':repairman_request_list})
     except:
         return render(request,'cooperation/repairmanrequestlist.html')
+
+
+@login_required
+@superuser_required
+def RepairManRequestDeleteView(request, pk):
+    repairman_request = get_object_or_404(RepairManRequestModel, pk = pk)
+    repairman_request.delete()
+    return HttpResponseRedirect(reverse('cooperation:repairmanrequestlist'))

@@ -2,7 +2,8 @@ from django.urls import include, path
 from cooperation.views import (CreateJobOpportunityView,JobOpportunityListView,
                                 JobOpportunityListViewSuperUser, JobOpportunityDeleteView,
                                 CreateApplicationView, ApplicationListView, CreateDelegationRequestView,
-                                DelegationRequestListView, CreateRepairManRequestView, RepairManRequestListView)
+                                DelegationRequestListView, CreateRepairManRequestView, RepairManRequestListView,
+                                RepairManRequestDeleteView, DelegationRequestDeleteView, ApplicationDeleteView)
 
 app_name ='cooperation'
 urlpatterns = [
@@ -16,5 +17,8 @@ urlpatterns = [
     path('delegation-request-list/',DelegationRequestListView , name = 'delegationrequestlist'),
     path('create-repairman-request/',CreateRepairManRequestView , name = 'createrepairmanrequest'),
     path('repairman-request-list/',RepairManRequestListView , name = 'repairmanrequestlist'),
+    path('repairman-request-delete/<int:pk>/',RepairManRequestDeleteView , name = 'repairmanrequestdelete'),
+    path('delegation-request-delete/<int:pk>/',DelegationRequestDeleteView , name = 'delegationrequestdelete'),
+    path('application-delete/<int:pk>/',ApplicationDeleteView , name = 'applicationdelete'),
 
 ]
