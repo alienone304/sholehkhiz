@@ -33,9 +33,9 @@
             </div>
         </div>
     {% if user.is_superuser %}
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " uk-toggle="target: #modal-delete{{product.pk}}">حذف</a>
-        <a style="border-top:solid 4px #ff0a0a; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large whiteC redC-text fHarmattan " href="{% url 'products:update' product.pk %}">ویرایش</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large redC whiteC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large redC whiteC-text fHarmattan " uk-toggle="target: #modal-delete{{product.pk}}">حذف</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large redC whiteC-text fHarmattan " href="{% url 'products:update' product.pk %}">ویرایش</a>
         <div id="modal-delete{{product.pk}}" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
     <h2 class="uk-modal-title fHarmattan ">اطمینان در حذف؟</h2>

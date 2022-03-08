@@ -9,7 +9,7 @@
 
 {% block body_block %}
 <br>
-<h3 style="font-size:30px;" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">سفارشات چک نشده</h3>
+<h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">سفارشات چک نشده</h3>
 <div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 {% if order_list %}
 {% for order in order_list %}
@@ -28,7 +28,7 @@
 <div class="uk-width-1-1 uk-text-right">
 <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:detail' order.pk %}" >جزئیات</a>
 </div>
-{% endif %}
+{% endif %}redC-text
 
       </div>
 

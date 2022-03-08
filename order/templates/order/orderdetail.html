@@ -9,7 +9,7 @@
 
 {% block body_block %}
 <br>
-<h3 style="font-size:30px;" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">جزئیات سفارش</h3>
+<h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">جزئیات سفارش</h3>
 <div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 
 
@@ -26,7 +26,7 @@
 
 
           {% if user.is_superuser %}
-          <div class="uk-width-1 uk-text-right">
+          <div class="uk-width-1 uk-text-redC-text
           {% if order.checked %}
           <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:changestatus' order.pk %}" >تغییر به چک نشده</a>
           {% else %}

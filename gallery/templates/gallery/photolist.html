@@ -9,7 +9,7 @@
 
 {% block body_block %}
 <br>
-<h3 style="font-size:40px; text-shadow: 0 0 20px blue, 0 0 30px black" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست عکس ها</h3>
+<h3 style="font-size:40px; text-shadow: 0 0 20px blue, 0 0 30px black" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست عکس ها</h3>
 <br>
 <div style="padding:4%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 {% for photo in photos %}
@@ -26,7 +26,7 @@
               {% if user.is_superuser %}
               <br><br>
               <div style="margin-right:0px;" class="uk-position-bottom" uk-grid>
-                <a style="border-top:solid 4px #ff0a0a; font-size:20px;" class="uk-button uk-button-large redC whiteC-text fHarmattan uk-width-1-2" uk-toggle="target: #modal-delete{{photo.pk}}">حذف</a>
+                <a style="border-top:solid 4pxredC-textont-size:20px;" class="uk-button uk-button-large redC whiteC-text fHarmattan uk-width-1-2" uk-toggle="target: #modal-delete{{photo.pk}}">حذف</a>
                 <a style="border-top:solid 4px #ff0a0a; font-size:20px;" class="uk-button uk-button-large whiteC redC-text fHarmattan uk-width-1-2" href="{% url 'gallery:photoupdate' photo.pk %}">ویرایش</a>
               </div>
               <div id="modal-delete{{photo.pk}}" style="margin-top:50px" uk-modal>
