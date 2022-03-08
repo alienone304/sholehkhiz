@@ -9,7 +9,7 @@
 
 {% block body_block %}
 <br>
-<h3 style="font-size:30px;" class="whiteC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست تماس با ما</h3>
+<h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست تماس با ما</h3>
 <div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 {% for contactus in contactus_list %}
 
@@ -24,7 +24,7 @@
 
           <div class="uk-width-1-1 uk-text-center redC-text" >متن درخواست یا پیشنهاد</div><div class="uk-width-1-1 uk-text-justify darkgreyC-text">{{contactus.request}}</div>
 <br>
-<a href="{% url 'company:contact-us-delete' contactus.pk  %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottomredC-textt fHarmattan uk-text-large">حذف</a>
+<a href="{% url 'company:contact-us-delete' contactus.pk  %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">حذف</a>
       </div>
 
 

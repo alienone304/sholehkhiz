@@ -26,7 +26,7 @@
 
 
           {% if user.is_superuser %}
-          <div class="uk-width-1 uk-text-redC-text
+          <div class="uk-width-1 uk-text-right">
           {% if order.checked %}
           <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:changestatus' order.pk %}" >تغییر به چک نشده</a>
           {% else %}
