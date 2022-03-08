@@ -23,66 +23,65 @@
       <body style="background-color: #ff0a0a;" class="redC">
         <header>
             <!-- Main Navbar -->
-            <nav class="uk-navbar-container uk-margin" style="position: fixed;right: 0;left: 0;top: 0;z-index: 1030;box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" uk-navbar>
+            <nav class="uk-navbar-container uk-margin" style="background-color: #ff0a0a;position: fixed;right: 0;left: 0;top: 0;z-index: 1030;box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" uk-navbar>
                 <div class="uk-navbar-center">
                   <div class="uk-navbar-center-left"><div>
     <ul  class="uk-navbar-nav uk-visible@m">
       <li>
-    <a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " class="  " href="#">محصولات و سفارش</a>
-    <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#f2f2f2;">
+    <a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px; " class="  " href="#">محصولات و سفارش</a>
+    <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#ff0a0a;">
         <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:radiatorlist' %}">رادیاتور پنلی</a></li>
-            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:towerdryerlist' %}">حوله خشک کن</a></li>
-            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:packagelist' %}">پکیج دیواری</a></li>
-            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:waterheaterlist' %}">آبگرمکن</a></li>
+            <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:radiatorlist' %}">رادیاتور پنلی</a></li>
+            <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:towerdryerlist' %}">حوله خشک کن</a></li>
+            <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:packagelist' %}">پکیج دیواری</a></li>
+            <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:waterheaterlist' %}">آبگرمکن</a></li>
         </ul>
     </div>
 </li>
 <li>
-<a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " class="  " href="#">همکاری</a>
-<div  class="uk-navbar-dropdown" style="margin-top:-10px; background-color:#f2f2f2;">
-  <ul class="uk-nav uk-navbar-dropdown-nav ">
-      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'cooperation:jobopportunitylist' %}">فرصت های شغلی</a></li>
-      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'cooperation:createdelegationrequest' %}">درخواست نمایندگی فروش</a></li>
-      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'cooperation:createrepairmanrequest' %}">درخواست نمایندگی خدمات</a></li>
+<a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px; " class="  " href="#">همکاری</a>
+<div  class="uk-navbar-dropdown" style="margin-top:-10px; background-color:#ff0a0a;">
+  <ul class="uk-nav uk-navbar-dropdown-nav " style="margin:-10%;">
+      <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:16px; " href="{% url 'cooperation:jobopportunitylist' %}">فرصت های شغلی</a></li>
+      <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:16px; " href="{% url 'cooperation:createdelegationrequest' %}">درخواست نمایندگی فروش</a></li>
+      <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:16px; " href="{% url 'cooperation:createrepairmanrequest' %}">درخواست نمایندگی خدمات</a></li>
   </ul>
 </div>
 </li>
 
-      <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'gallery:gallery' %}">گالری</a></li>
-<li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="https://sholehkhiz.com/blog/">مقالات</a></li>
+      <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'gallery:gallery' %}">گالری</a></li>
+<li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="https://sholehkhiz.com/blog/">مقالات</a></li>
     </ul>
-          <a href="#" class="uk-navbar-toggle uk-hidden@m redC-text" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+
 </div></div>
         <a class="uk-navbar-item uk-logo" href="{% url 'home' %}"><img src="/media/Logo/logo.png" width="90"></a>
-        <div class="uk-navbar-center-right"><div>
+        <div class="uk-navbar-center-right"><a id="humberger" href="#" class="uk-navbar-toggle uk-hidden@m whiteC-text" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a><div>
     <ul class="uk-navbar-nav">
       <ul class="uk-navbar-nav uk-visible@m">
         <li>
-      <a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " class="  " href="#">شعله خیز</a>
-      <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#f2f2f2;">
+      <a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;; " class="  " href="#">شعله خیز</a>
+      <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#ff0a0a;">
           <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'company:about-us' %}">درباره ما</a></li>
-              <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'company:complaint' %}">شکایت</a></li>
-              <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'company:contact-us' %}">تماس با ما</a></li>
+            <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;; " href="{% url 'company:about-us' %}">درباره ما</a></li>
+              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;; " href="{% url 'company:complaint' %}">شکایت</a></li>
+              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;; " href="{% url 'company:contact-us' %}">تماس با ما</a></li>
 
           </ul>
       </div>
   </li>
         {% if user.is_authenticated and user.is_superuser%}
-          <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'accounts:superuserdashboard' %}">داشبورد</a></li>
+          <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'accounts:superuserdashboard' %}">داشبورد</a></li>
           {% endif %}
         {% if user.is_authenticated %}
-        <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'logout' %}">خروج</a></li>
+        <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'logout' %}">خروج</a></li>
         {% if user.is_commonuser %}
-        <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'commonuser:profile' user.slug %}">پروفایل</a></li>
+        <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'commonuser:profile' user.slug %}">پروفایل</a></li>
         {% endif %}
         {% else %}
-          <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'accounts:login' %}">ورود</a></li>
-          <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'commonuser:signup' %}">عضویت</a></li>
+          <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'accounts:login' %}">ورود</a></li>
+          <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'commonuser:signup' %}">عضویت</a></li>
           {% endif %}
-          <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'delegations:publiclist' %}">مراکز خدمات</a></li>
-
+          <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'delegations:publiclist' %}">مراکز خدمات</a></li>
 
 
       </ul>
@@ -93,52 +92,53 @@
 </div>
 
             </nav>
-        </header>
+                  </header>
 
-        <div style="z-index:5000" id="sidenav" uk-offcanvas="flip: true" style="box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas milkywhiteC">
-            <div style="box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas-bar milkywhiteC">
-                <ul class="uk-nav">
-                  {% if user.is_authenticated and user.is_superuser%}
-                    <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'accounts:superuserdashboard' %}">داشبورد</a></li>
-                    {% endif %}
-                  {% if user.is_authenticated %}
-                  <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'logout' %}">خروج</a></li>
-                  {% if user.is_commonuser %}
-                  <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'commonuser:profile' user.slug %}">پروفایل</a></li>
-                  {% endif %}
-                  {% else %}
-                    <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'accounts:login' %}">ورود</a></li>
-                    <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'commonuser:signup' %}">عضویت</a></li>
-                    {% endif %}
-                    <li><span style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;">محصولات و سفارش</span></li>
-                                    </ul>
+                  <div style="z-index:5000" id="sidenav" uk-offcanvas="flip: true" style="background-color:#ff0a0a; box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas">
+                      <div style="background-color:#ff0a0a; box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas-bar">
+                          <ul class="uk-nav">
+                            {% if user.is_authenticated and user.is_superuser%}
+                              <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'accounts:superuserdashboard' %}">داشبورد</a></li>
+                              {% endif %}
+                            {% if user.is_authenticated %}
+                            <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'logout' %}">خروج</a></li>
+                            {% if user.is_commonuser %}
+                            <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'commonuser:profile' user.slug %}">پروفایل</a></li>
+                            {% endif %}
+                            {% else %}
+                              <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'accounts:login' %}">ورود</a></li>
+                              <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'commonuser:signup' %}">عضویت</a></li>
+                              {% endif %}
+                              <li><span style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;border-bottom: solid red 1px;">محصولات و سفارش</span></li>
+                                              </ul>
 
-                                    <ul>
-                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:radiatorlist' %}">رادیاتور پنلی</a></li>
-                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:towerdryerlist' %}">حوله خشک کن</a></li>
-                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:packagelist' %}">پکیج دیواری</a></li>
-                                      <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'products:waterheaterlist' %}">آبگرمکن</a></li>
-                                    </ul>
-                    <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'delegations:publiclist' %}">مراکز خدمات</a></li>
-                    <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="https://sholehkhiz.com/blog/">مقالات</a></li>
+                                              <ul>
+                                                <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'products:radiatorlist' %}">رادیاتور پنلی</a></li>
+                                                <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'products:towerdryerlist' %}">حوله خشک کن</a></li>
+                                                <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'products:packagelist' %}">پکیج دیواری</a></li>
+                                                <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'products:waterheaterlist' %}">آبگرمکن</a></li>
+                                              </ul>
+                                              <ul class="uk-nav">
+                              <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'delegations:publiclist' %}">مراکز خدمات</a></li>
+                              <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="https://sholehkhiz.com/blog/">مقالات</a></li>
+
+                              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'company:contact-us' %}">تماس با ما</a></li>
+                              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'company:complaint' %}">شکایت</a></li>
+                              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'company:about-us' %}">درباره ما</a></li>
 
 
-                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'company:contact-us' %}">تماس با ما</a></li>
-                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'company:complaint' %}">شکایت</a></li>
-                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'company:about-us' %}">درباره ما</a></li>
 
-                <ul class="uk-nav">
-                  <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'gallery:gallery' %}">گالری</a></li>
-            <li><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;" class=" " href="{% url 'company:about-us' %}">درباره ما</a></li>
-            <li><span style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px;">همکاری</span></li>
-                </ul>
-                <ul >
-                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'cooperation:jobopportunitylist' %}">فرصت های شغلی</a></li>
-                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'cooperation:createdelegationrequest' %}">درخواست نمایندگی فروش</a></li>
-                    <li class="uk-active"><a style="color:#ff0a0a; font-family: 'Yekan', sans-serif; font-size:20px; " href="{% url 'cooperation:createrepairmanrequest' %}">درخواست نمایندگی خدمات</a></li>
-                </ul>
-            </div>
-        </div>
+
+                            <li><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;;" class=" " href="{% url 'gallery:gallery' %}">گالری</a></li>
+                      <li><span style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;border-bottom: solid red 1px;">همکاری</span></li>
+                          </ul>
+                          <ul >
+                              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'cooperation:jobopportunitylist' %}">فرصت های شغلی</a></li>
+                              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'cooperation:createdelegationrequest' %}">درخواست نمایندگی فروش</a></li>
+                              <li class="uk-active"><a style="color:#ffffff; font-family: 'Yekan', sans-serif; font-size:17px;; " href="{% url 'cooperation:createrepairmanrequest' %}">درخواست نمایندگی خدمات</a></li>
+                          </ul>
+                      </div>
+                  </div>
 <br><br><br><br>
 
 <br>
