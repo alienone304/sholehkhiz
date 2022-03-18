@@ -11,7 +11,6 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_list_or_404
 from django.conf import settings
 from django.utils import timezone
-from kavenegar import KavenegarAPI
 
 # handmade
 from products.models import ProductsModel
@@ -24,7 +23,6 @@ from accounts.decorators import superuser_required
 @login_required
 @commonuser_required
 def OrderingView(request, pk):
-    #api = KavenegarAPI(settings.KAVENEGAR_API_KEY)
     product = get_object_or_404(ProductsModel, pk= pk)
     if request.method == 'POST':
         ordering_form = OrderingForm(data = request.POST)
@@ -55,7 +53,6 @@ def UnCheckedOrdersListView(request):
 def CheckedOrdersListView(request):
     order_list = OrderingModel.objects.filter(checked = True)
     return render(request,'order/checkedorderslist.html',{'order_list':order_list})
-
 
 
 @login_required

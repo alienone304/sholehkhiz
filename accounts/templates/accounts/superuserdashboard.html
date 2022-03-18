@@ -13,7 +13,7 @@
 <br><br>
 <div class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
       <div style="padding-left:9%;padding-right:10%;" class="uk-width-1-1 ">
-        <a href="{% url 'chat:pendingchatsessionlist' %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">لیست چت های در انتظار{% if active_chats %}  <span style="background-color:red; border-radius:10px;" class="redC-text fHarmattan">{{active_chats}}</span>{% endif %}</a>
+        <a href="{% url 'chat:pendingchatsessionlist' %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">لیست چت های در انتظار{% if active_chats %}  <span style="border-radius:10px;" class="whiteC-text fHarmattan">:{{active_chats}}</span>{% endif %}</a>
 <a href="{% url 'products:create' %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">ایجاد محصول</a>
 <a href="{% url 'products:listsuperuser' %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">محصولات</a>
 <a href="{% url 'order:checkedlist' %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">سفارشات چک شده</a>

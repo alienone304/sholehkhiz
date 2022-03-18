@@ -12,35 +12,26 @@
 
 
 
-
-
-<div style="padding:80px;" class="uk-grid-match uk-grid-small uk-text-center redC" uk-grid>
-
+<div style="padding:4%" class="uk-grid-match uk-text-center uk-grid-small" uk-grid>
+    <div class="uk-width-1-1 uk-block fHarmattan">
 
       <div style="border-radius:8px;" class="uk-width-1-1 uk-block milkywhiteC">
-<div class="uk-card uk-card uk-card-body">
-  <div class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
-    <div class="uk-width-1-1 uk-width-1-5@m uk-block">
-      <h3 class="uk-card-title fHarmattan uk-text-bold">
-{% if product.is_package %}
-پکیج
-{% elif product.is_radiator %}
-رادیاتور پنلی
-{% elif product.is_towerdryer %}
-حوله خشک کن
-{% elif product.is_waterheater %}
-آبگرمکن
-{% endif %}<br></h3>
-    <h3 class="fHarmattan">   {{product.name}}</h3>
-      <p class="uk-text-right uk-text-justify fHarmattan">{{product.description}}</p>
+<div style="border-radius: 8px;" class="uk-card uk-card-default whiteC">
+  <div style=" padding:8px;" class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
+    <div style=" padding:8px;" class="uk-width-1-1 uk-width-1-2@m">
+
+        <img style="border-radius: 8px; max-width:500px;" src="{{product.picture.url}}">
+
     </div>
-  <div class="uk-width-1-1 uk-width-2-5@m uk-block">
-    <img src="{{product.picture.url}}" alt="">
-</div>
 
-<div class="uk-width-1-1 uk-width-2-5@m  uk-block">
+    <div class="uk-width-1-1 uk-width-1-2@m uk-block">
+      <h3 style="font-size:30px;color:red;" class="uk-text-bold redC-text uk-card-title uk-align-center fHarmattan">سفارش محصول</h3>
+      <h3 class=" fHarmattan">
+<span class="uk-text-left">{{product.name}}</span>
+</h3>
+      <p class="uk-text-right uk-text-justify fHarmattan">{{product.description}}</p>
 
-<h3 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">سفارش محصول</h3>
+
 
 <form enctype="multipart/form-data" method="POST">
   {% csrf_token %}
@@ -50,7 +41,189 @@
 {{ordering_form.number}}
 {{ordering_form.Hfield}}
   </div>
+  {% if product.size_1 %}
+    <div class="uk-width-1-1">
+  لطفا مدل یا سایز های مورد نظر خود را انتخاب کنید
+</div>
+  <div class=" uk-width-1-1" uk-grid>
 
+    <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_1" onclick="validate()">{{product.size_1}}</label>
+  </div>
+    <span id="field_1" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_1}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_2 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_2" onclick="validate()">{{product.size_2}}</label>
+</div>
+  <span id="field_2" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_2}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_3 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_3" onclick="validate()">{{product.size_3}}</label>
+</div>
+  <span id="field_3" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_3}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_4 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_4" onclick="validate()">{{product.size_4}}</label>
+</div>
+  <span id="field_4" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_4}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_5 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_5" onclick="validate()">{{product.size_5}}</label>
+</div>
+  <span id="field_5" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_5}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_6 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_6" onclick="validate()">{{product.size_6}}</label>
+</div>
+  <span id="field_6" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_6}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_7 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_7" onclick="validate()">{{product.size_7}}</label>
+</div>
+  <span id="field_7" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_7}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_8 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_8" onclick="validate()">{{product.size_8}}</label>
+</div>
+  <span id="field_8" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_8}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_9 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_9" onclick="validate()">{{product.size_9}}</label>
+</div>
+  <span id="field_9" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_9}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_10 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_10" onclick="validate()">{{product.size_10}}</label>
+</div>
+  <span id="field_10" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_10}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_11 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_11" onclick="validate()">{{product.size_11}}</label>
+</div>
+  <span id="field_11" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_11}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_12 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_12" onclick="validate()">{{product.size_12}}</label>
+</div>
+  <span id="field_12" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_12}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_13 %}
+
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_13" onclick="validate()">{{product.size_13}}</label>
+</div>
+  <span id="field_13" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_13}}
+</span>
+
+</div>
+{% endif %}
+{% if product.size_14 %}
+<div class=" uk-width-1-1" uk-grid>
+
+  <div class="uk-width-1-2 uk-text-right">
+<label><input style="margin-top:17px; margin-left:5px;margin-bottom:7px;" class="uk-checkbox" type="checkbox" id="size_14" onclick="validate()">{{product.size_14}}</label>
+</div>
+  <span id="field_14" class="uk-width-1-2 uk-text-right" style="display:none;">
+{{ordering_form.number_14}}
+</span>
+
+</div>
+{% endif %}
   <div class="uk-width-1-1">
   {{ordering_form.description}}
   </div>
@@ -79,4 +252,124 @@
 </div>
 </div>
 </div>
+</div>
+    {% endblock %}
+{% block script_block %}
+
+<script type="text/javascript">
+    function validate() {
+       var checkBox1 = document.getElementById("size_1");
+       var text1 = document.getElementById("field_1");
+
+       var checkBox2 = document.getElementById("size_2");
+       var text2 = document.getElementById("field_2");
+
+       var checkBox3 = document.getElementById("size_3");
+       var text3 = document.getElementById("field_3");
+
+       var checkBox4 = document.getElementById("size_4");
+       var text4 = document.getElementById("field_4");
+
+       var checkBox5 = document.getElementById("size_5");
+       var text5 = document.getElementById("field_5");
+
+       var checkBox6 = document.getElementById("size_6");
+       var text6 = document.getElementById("field_6");
+
+       var checkBox7 = document.getElementById("size_7");
+       var text7 = document.getElementById("field_7");
+
+       var checkBox8 = document.getElementById("size_8");
+       var text8 = document.getElementById("field_8");
+
+       var checkBox9 = document.getElementById("size_9");
+       var text9 = document.getElementById("field_9");
+
+       var checkBox10 = document.getElementById("size_10");
+       var text10 = document.getElementById("field_10");
+
+       var checkBox11 = document.getElementById("size_11");
+       var text11 = document.getElementById("field_11");
+
+       var checkBox12 = document.getElementById("size_12");
+       var text12 = document.getElementById("field_12");
+
+       var checkBox13 = document.getElementById("size_13");
+       var text13 = document.getElementById("field_13");
+
+       var checkBox14 = document.getElementById("size_14");
+       var text14 = document.getElementById("field_14");
+
+       if (checkBox1.checked == true){
+         text1.style.display = "block";
+       } else {
+         text1.style.display = "none";
+       }
+       if (checkBox2.checked == true){
+         text2.style.display = "block";
+       } else {
+         text2.style.display = "none";
+       }
+       if (checkBox3.checked == true){
+         text3.style.display = "block";
+       } else {
+         text3.style.display = "none";
+       }
+       if (checkBox4.checked == true){
+         text4.style.display = "block";
+       } else {
+         text4.style.display = "none";
+       }
+       if (checkBox5.checked == true){
+         text5.style.display = "block";
+       } else {
+         text5.style.display = "none";
+       }
+       if (checkBox6.checked == true){
+         text6.style.display = "block";
+       } else {
+         text6.style.display = "none";
+       }
+       if (checkBox7.checked == true){
+         text7.style.display = "block";
+       } else {
+         text7.style.display = "none";
+       }
+       if (checkBox8.checked == true){
+         text8.style.display = "block";
+       } else {
+         text8.style.display = "none";
+       }
+       if (checkBox9.checked == true){
+         text9.style.display = "block";
+       } else {
+         text9.style.display = "none";
+       }
+       if (checkBox10.checked == true){
+         text10.style.display = "block";
+       } else {
+         text10.style.display = "none";
+       }
+       if (checkBox11.checked == true){
+         text11.style.display = "block";
+       } else {
+         text11.style.display = "none";
+       }
+       if (checkBox12.checked == true){
+         text12.style.display = "block";
+       } else {
+         text12.style.display = "none";
+       }
+       if (checkBox13.checked == true){
+         text13.style.display = "block";
+       } else {
+         text13.style.display = "none";
+       }
+       if (checkBox14.checked == true){
+         text14.style.display = "block";
+       } else {
+         text14.style.display = "none";
+       }
+    }
+</script>
     {% endblock %}

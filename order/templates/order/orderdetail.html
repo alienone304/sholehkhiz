@@ -23,8 +23,62 @@
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >شماره تماس سفارش دهنده</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.user.username}}</div>
 <div class="uk-width-1-1 uk-text-center redC-text" >آدرس سفارش دهنده</div><div class="uk-width-1-1  uk-text-center darkgreyC-text">{{order.user.commonusers.address}}</div>
 <div class="uk-width-1-1 uk-text-center redC-text" >توضیحات سفارش</div><div class="uk-width-1-1 uk uk-text-center darkgreyC-text">{{order.description}}</div>
-
-
+{% if order.number_1 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_1}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_1}}</div>
+{% endif %}
+{% if order.number_2 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_2}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_2}}</div>
+{% endif %}
+{% if order.number_3 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_3}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_3}}</div>
+{% endif %}
+{% if order.number_4 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_4}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_4}}</div>
+{% endif %}
+{% if order.number_5 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_5}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_5}}</div>
+{% endif %}
+{% if order.number_6 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_6}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_6}}</div>
+{% endif %}
+{% if order.number_7 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_7}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_7}}</div>
+{% endif %}
+{% if order.number_8 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_8}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_8}}</div>
+{% endif %}
+{% if order.number_9 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_9}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_9}}</div>
+{% endif %}
+{% if order.number_10 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_10}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_10}}</div>
+{% endif %}
+{% if order.number_11 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_11}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_11}}</div>
+{% endif %}
+{% if order.number_12 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_12}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_12}}</div>
+{% endif %}
+{% if order.number_13 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_13}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_13}}</div>
+{% endif %}
+{% if order.number_14 %}
+<div class="uk-width-1-2 uk-text-center redC-text" >تعداد سفارش از مدل {{order.size_14}}</div>
+<div class="uk-width-1-2 uk uk-text-center darkgreyC-text">{{order.number_14}}</div>
+{% endif %}
           {% if user.is_superuser %}
           <div class="uk-width-1 uk-text-right">
           {% if order.checked %}

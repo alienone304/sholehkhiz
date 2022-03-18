@@ -1,0 +1,57 @@
+@font-face {
+  font-family: Yekan;
+  src: url('fonts/Yekan.eot');
+  src: url('fonts/Yekan.eot?#iefix') format('Yekan-opentype'),
+       url('fonts/Yekan.woff') format('woff'),
+       url('fonts/Yekan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.fMarkazi {
+  font-family: 'Markazi Text', serif;
+}
+.fHarmattan {
+font-family: 'Yekan';
+}
+.fLalezar {
+  font-family: 'Lalezar', cursive;
+}
+.fLateef {
+  font-family: 'Lateef', cursive;
+}
+.goldC{
+  background-color: #d4af37;
+}
+.goldC-text{
+  color: #d4af37;
+}
+.whiteC{
+  background-color: #ffffff;
+}
+.whiteC-text{
+  color: #ffffff;
+}
+.milkywhiteC{
+  background-color: #f2f2f2;
+}
+.milkywhiteC-text{
+  color: #f2f2f2;
+}
+.darkgreyC{
+  background-color: #262626;
+}
+.darkgreyC-text{
+  color: #262626;
+}
+.redC{
+  background-color: #ff0a0a;
+}
+.redC-text{
+  color: #ff0a0a;
+}
+.blueC{
+  background-color: #0a50ff;
+}
+.blueC-text{
+  color: #0a50ff;
+}
