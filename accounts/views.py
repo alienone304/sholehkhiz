@@ -89,6 +89,7 @@ def ForgotPasswordView(request):
     else:
         return HttpResponseRedirect(reverse('commonuser:wait'))
 
+
 @login_required
 def PasswordChangeView(request,slug):
     user = get_object_or_404(UserModel,slug = slug)
