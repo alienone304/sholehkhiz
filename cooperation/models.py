@@ -29,6 +29,7 @@ class ApplicationModel(models.Model):
     computer_mastery = models.CharField(max_length = 264, blank = True, null = True)
     job_attendance = models.CharField(max_length = 264, blank = True, null = True)
     descriprion = models.TextField(null = True, blank = True)
+    created_at = models.DateTimeField(default=timezone.now)
     resome = models.FileField(upload_to='resome/',null = True, blank = True, default = r'cataloges/default/default.jpeg')
 
 
@@ -49,6 +50,7 @@ class DelegationRequestModel(models.Model):
     for_radiator = models.BooleanField(default = False)
     for_waterheater = models.BooleanField(default = False)
     has_reservoir = models.BooleanField(default = False)
+    created_at = models.DateTimeField(default=timezone.now)
 
     fax_number = models.CharField(max_length = 264, blank = True, null = True)
     sell_prediction_towerdryer = models.CharField(max_length = 264, blank = True, null = True)
@@ -74,6 +76,7 @@ class RepairManRequestModel(models.Model):
     for_package = models.BooleanField(default = False)
     for_radiator = models.BooleanField(default = False)
     for_waterheater = models.BooleanField(default = False)
+    created_at = models.DateTimeField(default=timezone.now)
 
     college_evidence = models.CharField(max_length = 264, blank = True, null = True)
     field_of_study = models.CharField(max_length = 264, blank = True, null = True)

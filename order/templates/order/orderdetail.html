@@ -21,6 +21,7 @@
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >نام محصول سفارش شده</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.product.name}}</div>
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >تعداد سفارش شده</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.number}}</div>
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >شماره تماس سفارش دهنده</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.user.username}}</div>
+<div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >تاریخ سفارش</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.created_at}}</div>
 <div class="uk-width-1-1 uk-text-center redC-text" >آدرس سفارش دهنده</div><div class="uk-width-1-1  uk-text-center darkgreyC-text">{{order.user.commonusers.address}}</div>
 <div class="uk-width-1-1 uk-text-center redC-text" >توضیحات سفارش</div><div class="uk-width-1-1 uk uk-text-center darkgreyC-text">{{order.description}}</div>
 {% if order.number_1 %}
@@ -86,6 +87,7 @@
           {% else %}
           <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:changestatus' order.pk %}" >تغییر به چک شده</a>
           {% endif %}
+          <br>
           <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:orderdelete' order.pk %}" >حذف</a>
           </div>
           {% endif %}

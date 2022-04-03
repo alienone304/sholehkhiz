@@ -29,6 +29,7 @@
           <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >جنسیت</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{% if application.is_man %}آقا{% else %}خانم{% endif %}</div>
           <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >وضعیت تاهل</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{% if application.is_single %}مجرد{% else %}متاهل{% endif %}</div>
           <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >آدرس</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{{application.address }}</div>
+          <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >تاریخ درخواست</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{{application.created_at }}</div>
           <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >مدرک تحصیلی</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{{application.college_evidence }}</div>
           <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >رشته تحصیلی</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{{application.field_of_study }}</div>
           <div class="uk-width-1-2 uk-width-1-6@m uk-text-left redC-text" >نمره تحصیلی</div><div class="uk-width-1-2 uk-width-1-6@m uk-text-right darkgreyC-text">{{application.college_score }}</div>

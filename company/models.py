@@ -7,6 +7,7 @@ class ContactUsModel(models.Model):
     phone_number = models.CharField(max_length = 264, blank = True, null =True)
     request = models.TextField(null = True, blank = True)
     contacted_at = models.DateTimeField(default=timezone.now)
+    
 
 
 class ComplaintModel(models.Model):
