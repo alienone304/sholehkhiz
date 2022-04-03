@@ -85,7 +85,7 @@ def CreateApplicationView(request,pk):
 @superuser_required
 def ApplicationListView(request):
     try:
-        application_list = get_list_or_404(ApplicationModel.objects.all())
+        application_list = get_list_or_404(ApplicationModel.objects.all().order_by('checked_at'))
         return render(request,'cooperation/applicationlist.html',
                       {'application_list':application_list})
     except:
@@ -98,6 +98,19 @@ def ApplicationDeleteView(request, pk):
     application = get_object_or_404(ApplicationModel, pk = pk)
     application.delete()
     return HttpResponseRedirect(reverse('cooperation:applicationlist'))
+
+
+@login_required
+@superuser_required
+def ApplicationCheckView(request, pk):
+    application = get_object_or_404(ApplicationModel, pk = pk)
+    if application.checked_at:
+        pass
+    else:
+        application.checked_at = timezone.now()
+    application.save()
+    return HttpResponseRedirect(reverse('cooperation:applicationlist'))
+
 
 
 def CreateDelegationRequestView(request):
@@ -119,7 +132,7 @@ def CreateDelegationRequestView(request):
 @superuser_required
 def DelegationRequestListView(request):
     try:
-        delegation_request_list = get_list_or_404(DelegationRequestModel.objects.all())
+        delegation_request_list = get_list_or_404(DelegationRequestModel.objects.all().order_by('checked_at'))
         return render(request,'cooperation/delegationrequestlist.html',
                       {'delegation_request_list':delegation_request_list})
     except:
@@ -134,12 +147,24 @@ def DelegationRequestDeleteView(request, pk):
     return HttpResponseRedirect(reverse('cooperation:delegationrequestlist'))
 
 
+@login_required
+@superuser_required
+def DelegationRequestCheckView(request, pk):
+    delegation_request = get_object_or_404(DelegationRequestModel, pk = pk)
+    if delegation_request.checked_at:
+        pass
+    else:
+        delegation_request.checked_at = timezone.now()
+    delegation_request.save()
+    return HttpResponseRedirect(reverse('cooperation:delegationrequestlist'))
+
+
 def CreateRepairManRequestView(request):
     if request.method == 'POST':
         repairman_request_form = RepairManRequestForm(data = request.POST)
         if repairman_request_form.is_valid():
              repairman_request = repairman_request_form.save(commit=False)
-             repairman_request.save()
+             repairman_request.saDeleteve()
              return HttpResponseRedirect(reverse('home'))
         else:
             print(repairman_request_form.errors)
@@ -153,7 +178,7 @@ def CreateRepairManRequestView(request):
 @superuser_required
 def RepairManRequestListView(request):
     try:
-        repairman_request_list = get_list_or_404(RepairManRequestModel.objects.all())
+        repairman_request_list = get_list_or_404(RepairManRequestModel.objects.all().order_by('checked_at'))
         return render(request,'cooperation/repairmanrequestlist.html',
                       {'repairman_request_list':repairman_request_list})
     except:
@@ -165,4 +190,16 @@ def RepairManRequestListView(request):
 def RepairManRequestDeleteView(request, pk):
     repairman_request = get_object_or_404(RepairManRequestModel, pk = pk)
     repairman_request.delete()
+    return HttpResponseRedirect(reverse('cooperation:repairmanrequestlist'))
+
+
+@login_required
+@superuser_required
+def RepairManRequestCheckView(request, pk):
+    repairman_request = get_object_or_404(RepairManRequestModel, pk = pk)
+    if repairman_request.checked_at:
+        pass
+    else:
+        repairman_request.checked_at = timezone.now()
+    repairman_request.save()
     return HttpResponseRedirect(reverse('cooperation:repairmanrequestlist'))

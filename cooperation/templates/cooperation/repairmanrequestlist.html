@@ -46,6 +46,11 @@
           <div class="uk-width-1-2 uk-text-left redC-text" >گواهی نامه ها</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{repairman_request.certificates }}</div>
           <div class="uk-width-1-2 uk-text-left redC-text" >توضیحات</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{repairman_request.descriprion }}</div>
 <br>
+{% if repairman_request.checked_at %}
+<div class="uk-width-1-2 uk-text-left redC-text" >تاریخ چک کردن</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{repairman_request.checked_at }}</div>
+{% else %}
+<a href="{% url 'cooperation:repairmanrequestcheck' repairman_request.pk %}" class="uk-button redC whiteC-text uk-width-1-1 uk-margin-small-bottom fHarmattan uk-text-large">این آگهی را چک کردم</a><br><br>
+{% endif %}
 <a href="{% url 'cooperation:repairmanrequestdelete' repairman_request.pk %}" class="uk-button redC whiteC-text uk-width-1-1 uk-margin-small-bottom fHarmattan uk-text-large">حذف</a>
       </div>
 </div>

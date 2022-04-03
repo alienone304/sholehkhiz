@@ -22,6 +22,9 @@
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >تعداد سفارش شده</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.number}}</div>
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >شماره تماس سفارش دهنده</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.user.username}}</div>
 <div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >تاریخ سفارش</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.created_at}}</div>
+{% if order.checked_at %}
+<div class="uk-width-1-2 uk-width-1-4@s uk-text-left redC-text" >تاریخ چک کردن سفارش</div><div class="uk-width-1-2 uk-width-1-4@s uk-text-right darkgreyC-text">{{order.checked_at}}</div>
+{% endif %}
 <div class="uk-width-1-1 uk-text-center redC-text" >آدرس سفارش دهنده</div><div class="uk-width-1-1  uk-text-center darkgreyC-text">{{order.user.commonusers.address}}</div>
 <div class="uk-width-1-1 uk-text-center redC-text" >توضیحات سفارش</div><div class="uk-width-1-1 uk uk-text-center darkgreyC-text">{{order.description}}</div>
 {% if order.number_1 %}

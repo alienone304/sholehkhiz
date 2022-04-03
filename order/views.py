@@ -78,5 +78,9 @@ def OrdersChangeStatus(request, pk):
         order.checked = False
     else:
         order.checked = True
+    if order.checked_at:
+        pass
+    else:
+        order.checked_at = timezone.now()        
     order.save()
     return render(request,'order/orderdetail.html',{'order':order})

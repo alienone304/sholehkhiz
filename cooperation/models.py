@@ -11,6 +11,7 @@ class ApplicationModel(models.Model):
     job = models.ForeignKey(JobOpportunityModel, on_delete = models.CASCADE,
                                 null = False, blank = False, related_name = 'applications')
     name = models.CharField(max_length = 264, blank = False, null = False)
+    checked_at = models.DateTimeField(null = True, blank = True)
     last_name = models.CharField(max_length = 264, blank = False, null = False)
     email = models.EmailField(blank = False, null = False)
     id_number = models.CharField(max_length = 264, blank = False, null = False)
@@ -37,6 +38,7 @@ class ApplicationModel(models.Model):
 class DelegationRequestModel(models.Model):
     name = models.CharField(max_length = 264, blank = False, null = False)
     last_name = models.CharField(max_length = 264, blank = False, null = False)
+    checked_at = models.DateTimeField(null = True, blank = True)
     email = models.EmailField(blank = False, null = False)
     age = models.CharField(max_length = 264,blank = False, null = False)
     province = models.CharField(max_length = 264, blank = False, null = False)
@@ -64,6 +66,7 @@ class DelegationRequestModel(models.Model):
 
 class RepairManRequestModel(models.Model):
     name = models.CharField(max_length = 264, blank = False, null = False)
+    checked_at = models.DateTimeField(null = True, blank = True)
     last_name = models.CharField(max_length = 264, blank = False, null = False)
     age = models.CharField(max_length = 264, blank = False, null = False)
     province = models.CharField(max_length = 264, blank = False, null = False)

@@ -41,6 +41,11 @@
           </div>
           <div class="uk-width-1-2 uk-text-left redC-text" >سوابق کاری</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{application.job_attendance }}</div>
           <div class="uk-width-1-2 uk-text-left redC-text" >توضیحات دیگر</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{application.descriprion }}</div>
+          {% if application.checked_at %}
+          <div class="uk-width-1-2 uk-text-left redC-text" >تاریخ چک کردن</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{application.checked_at }}</div>
+          {% else %}
+<a href="{% url 'cooperation:applicationcheck' application.pk %}" class="uk-button redC whiteC-text uk-width-1-1 uk-margin-small-bottom fHarmattan uk-text-large">این آگهی را چک کردم</a><br><br>
+          {% endif %}
 <a href="{% url 'cooperation:applicationdelete' application.pk %}" class="uk-button redC whiteC-text uk-width-1-1 uk-margin-small-bottom fHarmattan uk-text-large">حذف</a>
 <br>
       </div>

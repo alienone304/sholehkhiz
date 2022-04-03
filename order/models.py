@@ -11,6 +11,7 @@ class OrderingModel(models.Model):
     number = models.IntegerField(blank = True, null = True)
     description = models.TextField(blank = True, null = True)
     created_at = models.DateTimeField(default=timezone.now)
+    checked_at = models.DateTimeField(null = True, blank = True)
     checked = models.BooleanField(default = False)
     size_1 = models.CharField(max_length = 264, null = True, blank = True)
     size_2 = models.CharField(max_length = 264, null = True, blank = True)

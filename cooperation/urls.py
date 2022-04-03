@@ -3,7 +3,8 @@ from cooperation.views import (CreateJobOpportunityView,JobOpportunityListView,
                                 JobOpportunityListViewSuperUser, JobOpportunityDeleteView,
                                 CreateApplicationView, ApplicationListView, CreateDelegationRequestView,
                                 DelegationRequestListView, CreateRepairManRequestView, RepairManRequestListView,
-                                RepairManRequestDeleteView, DelegationRequestDeleteView, ApplicationDeleteView)
+                                RepairManRequestDeleteView, DelegationRequestDeleteView, ApplicationDeleteView,
+                                RepairManRequestCheckView, DelegationRequestCheckView, ApplicationCheckView)
 
 app_name ='cooperation'
 urlpatterns = [
@@ -20,5 +21,9 @@ urlpatterns = [
     path('repairman-request-delete/<int:pk>/',RepairManRequestDeleteView , name = 'repairmanrequestdelete'),
     path('delegation-request-delete/<int:pk>/',DelegationRequestDeleteView , name = 'delegationrequestdelete'),
     path('application-delete/<int:pk>/',ApplicationDeleteView , name = 'applicationdelete'),
+
+    path('application-check/<int:pk>/',ApplicationCheckView , name = 'applicationcheck'),
+    path('delegation-request-check/<int:pk>/',DelegationRequestCheckView , name = 'delegationrequestcheck'),
+    path('repairman-request-check/<int:pk>/',RepairManRequestCheckView , name = 'repairmanrequestcheck'),
 
 ]

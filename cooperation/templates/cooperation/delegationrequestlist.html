@@ -46,6 +46,11 @@
           </div>
           <div class="uk-width-1-2@s uk-width-1-2 uk-text-left redC-text" >توضیحات</div><div class="uk-width-1-2@s uk-width-1-2 uk-text-right darkgreyC-text">{{delegation_request.description }}</div>
 <br>
+{% if delegation_request.checked_at %}
+<div class="uk-width-1-2 uk-text-left redC-text" >تاریخ چک کردن</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{delegation_request.checked_at }}</div>
+{% else %}
+<a href="{% url 'cooperation:delegationrequestcheck' delegation_request.pk %}" class="uk-button redC whiteC-text uk-width-1-1 uk-margin-small-bottom fHarmattan uk-text-large">این آگهی را چک کردم</a><br><br>
+{% endif %}
 <a href="{% url 'cooperation:delegationrequestdelete' delegation_request.pk %}" class="uk-button redC whiteC-text uk-width-1-1 uk-margin-small-bottom fHarmattan uk-text-large">حذف</a>
       </div>
 </div>
