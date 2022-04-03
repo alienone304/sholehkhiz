@@ -1,0 +1,53 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+لیست ویدیو ها | شعله خیز آذر
+</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+<h3 class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست ویدیو ها</h3>
+<br>
+<div style="padding:4%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+{% for video in videos %}
+      <div class="uk-width-1-1 uk-width-1-2@s uk-block fHarmattan">
+
+    <div class="uk-card uk-card-default uk-grid-collapse uk-margin uk-text-center uk-align-center" uk-scrollspy=" cls: uk-animation-fade; delay: 100" uk-grid>
+      <div class="uk-card-media-top uk-cover-container uk-text-center">
+          <video  controls>
+            <source src="{{video.video.url}}">
+            </video>
+          <canvas width="600" height="50"></canvas>
+      </div>
+      <div class="uk-text-center" >
+            <p class="uk-text-center uk-align-center">{{video.description}}</p>
+            <br>
+            <br>
+              {% if user.is_superuser %}
+              <div style="margin-right:0px;" class="uk-position-bottom" uk-grid>
+                <a style="border-top:solid 4px #ff0a0a; font-size:20px;" class="uk-button uk-button-large redC whiteC-text fHarmattan uk-width-1-1" uk-toggle="target: #modal-delete{{video.pk}}">حذف</a>
+              </div>
+              <div id="modal-delete{{video.pk}}" style="margin-top:50px" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body">
+              <h2 class="uk-modal-title fHarmattan ">اطمینان در حذف؟</h2>
+              <p class="fHarmattan">با حذف این مورد، تمامی مشخصات این عکس از دیتابیس ها حذف خواهد شد.</p>
+              <p class="uk-text-right">
+              <button class="uk-button uk-button-large uk-modal-close fHarmattan" type="button">لغو</button>
+              <a style="font-size:20px;" class="uk-button uk-button-large redC whiteC-text fHarmattan " href="{% url 'gallery:videodelete' video.pk %}" >حدف</a>
+              </p>
+              </div>
+              </div>
+{% endif %}
+      </div>
+  </div>
+
+
+
+</div>
+
+{% endfor %}
+</div>
+    {% endblock %}

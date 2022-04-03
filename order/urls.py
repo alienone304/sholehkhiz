@@ -1,6 +1,6 @@
 from django.urls import include, path
 from order.views import (OrderingView, CheckedOrdersListView, OrdersDetailView,
-                        UnCheckedOrdersListView, OrdersChangeStatus)
+                        UnCheckedOrdersListView, OrdersChangeStatus, OrderDeleteView)
 
 app_name ='ordering'
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     path('unchecked-list/', UnCheckedOrdersListView, name='uncheckedlist'),
     path('detail/<int:pk>/', OrdersDetailView, name='detail'),
     path('change-status/<int:pk>/', OrdersChangeStatus, name='changestatus'),
+    path('delete/<int:pk>/', OrderDeleteView, name='orderdelete'),
 
 
 ]

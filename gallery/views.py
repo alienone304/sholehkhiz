@@ -13,8 +13,8 @@ import random
 from django.utils import timezone
 
 # handmade
-from gallery.models import GalleryModel
-from gallery.forms import GalleryForm
+from gallery.models import GalleryModel, VideoModel
+from gallery.forms import GalleryForm, VideoForm
 from accounts.decorators import superuser_required
 
 @login_required
@@ -36,6 +36,27 @@ def CreatePhotoView(request):
     return render(request,'gallery/createphoto.html',
                   {'form':gallery_form})
 
+
+@login_required
+@superuser_required
+def CreateVideoView(request):
+    if request.method == 'POST':
+        video_form = VideoForm(data = request.POST)
+        if video_form.is_valid():
+
+             video = video_form.save(commit=False)
+             if 'video' in request.FILES:
+                video.video = request.FILES['video']
+             video.save()
+             return HttpResponseRedirect(reverse('accounts:superuserdashboard'))
+        else:
+            print(video_form.errors)
+    else:
+        video_form = VideoForm()
+    return render(request,'gallery/createvideo.html',
+                  {'form':video_form})
+
+
 @login_required
 @superuser_required
 def PhotoListView(request):
@@ -47,6 +68,16 @@ def PhotoListView(request):
         return render(request,'gallery/photolist.html')
 
 
+@login_required
+@superuser_required
+def VideoListView(request):
+    try:
+        videos = get_list_or_404(VideoModel)
+        return render(request,'gallery/videolist.html',
+                      {'videos':videos})
+    except:
+        return render(request,'gallery/videolist.html')
+
 
 @login_required
 @superuser_required
@@ -54,6 +85,14 @@ def PhotoDeleteView(request, pk):
     photo = get_object_or_404(GalleryModel, pk = pk)
     photo.delete()
     return HttpResponseRedirect(reverse('gallery:photolist'))
+
+
+@login_required
+@superuser_required
+def VideoDeleteView(request, pk):
+    video = get_object_or_404(VideoModel, pk = pk)
+    video.delete()
+    return HttpResponseRedirect(reverse('gallery:videolist'))
 
 
 @login_required
@@ -75,7 +114,17 @@ def PhotoUpdateView(request,pk):
 def GalleryView(request):
     try:
         photos = get_list_or_404(GalleryModel)
-        return render(request,'gallery/gallery.html',
-                      {'photos':photos})
+        try:
+            videos = get_list_or_404(VideoModel)
+            return render(request,'gallery/gallery.html',
+                        {'photos':photos,'videos':videos})
+        except:
+            return render(request,'gallery/gallery.html',
+                          {'photos':photos})
     except:
-        return render(request,'gallery/gallery.html')
+        try:
+            videos = get_list_or_404(VideoModel)
+            return render(request,'gallery/gallery.html',
+                        {'videos':videos})
+        except:
+            return render(request,'gallery/gallery.html')

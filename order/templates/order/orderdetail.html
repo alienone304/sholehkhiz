@@ -86,6 +86,7 @@
           {% else %}
           <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:changestatus' order.pk %}" >تغییر به چک شده</a>
           {% endif %}
+          <a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-text-large uk-width-1-1" href="{% url 'order:orderdelete' order.pk %}" >حذف</a>
           </div>
           {% endif %}
 <br>

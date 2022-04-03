@@ -61,6 +61,15 @@ def OrdersDetailView(request, pk):
     order = get_object_or_404(OrderingModel, pk = pk)
     return render(request,'order/orderdetail.html',{'order':order})
 
+
+@login_required
+@superuser_required
+def OrderDeleteView(request, pk):
+    order = get_object_or_404(OrderingModel, pk = pk)
+    order.delete()
+    return HttpResponseRedirect(reverse('accounts:superuserdashboard'))
+
+
 @login_required
 @superuser_required
 def OrdersChangeStatus(request, pk):

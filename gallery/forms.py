@@ -1,7 +1,7 @@
 from django import forms
 
 # handmade
-from gallery.models import GalleryModel
+from gallery.models import GalleryModel, VideoModel
 
 class GalleryForm(forms.ModelForm):
     class Meta():
@@ -16,3 +16,13 @@ class GalleryForm(forms.ModelForm):
             'for_excebition': forms.CheckboxInput(attrs={'class':'uk-checkbox fHarmattan '},),
             'description': forms.Textarea(attrs={'class':'uk-textarea fHarmattan','rows':'2','placeholder':'توضیحات'},),
         }
+
+
+class VideoForm(forms.ModelForm):
+    class Meta():
+        model = VideoModel
+        fields = '__all__'
+        widgets = {
+            'video': forms.FileInput(attrs={'class':'uk-button',},),
+            'description': forms.Textarea(attrs={'class':'uk-textarea fHarmattan','rows':'2','placeholder':'توضیحات'},),  
+            }
