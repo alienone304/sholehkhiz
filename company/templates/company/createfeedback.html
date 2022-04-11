@@ -1,0 +1,107 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+فرم نظرسنجی | شعله خیز
+</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+<div style="padding:7%">
+
+
+<div style="padding: 1%;border-radius: 8px;" uk-grid>
+<div class=" uk-width-1-1 uk-block fHarmattan ">
+<div class="uk-card uk-card-body milkywhiteC ">
+<div class="uk-card uk-card uk-card-body uk-text-center">
+    <p style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">فرم نظرسنجی</p>
+
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div  class="uk-grid-match uk-grid-medium uk-text-center" uk-grid>
+
+      <div class="uk-width-1-2@m">
+{{form.name}}
+{{form.Hfield}}
+      </div>
+
+      <div class="uk-width-1-2@m">
+      {{form.phone_number}}
+      </div>
+
+      <div class="uk-width-1">
+      {{form.address}}
+      </div>
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">آیا تکنسین به موقع مراجعه کرد؟</div>
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">
+            <label><input class="uk-radio" type="radio" id="1" name="does_visit_on_time" value="1">  بله</label>
+            <label><input class="uk-radio" type="radio" id="2" name="does_visit_on_time" value="2">  خیر</label>
+      </div>
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">آیا تکنسین کارت معتبر همراه داشتند و با لباس کار و تجهیزات کامل مراجعه کرد؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_have_card" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_have_card" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">آیا تکنسین آموزش‌های لازم را برای استفاده از دستگاه را داد؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_gave_tutorial" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_gave_tutorial" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">آیا تکنسین توانست مشکل دستگاه را برطرف نماید؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_solve_problem" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_solve_problem" value="2">  خیر</label>
+            </div>
+
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">آیا فاکتور شرکتی ارائه داد؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_give_factor" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_give_factor" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">قبل از تعمیر اعلام هزینه کردند؟ (بر اساس تعرفه)</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_announce_cost" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_announce_cost" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">آیا سرویس کار لیبل شماره تماس خود را روی دستگاه چسباندند؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_gave_label" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_gave_label" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">از نحوه سرویس‌دهی سرویسکار رضایت داشتید؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="does_satisfy_you" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="does_satisfy_you" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">برای رفع مشکل دستگاه چند مرتبه مراجعه نمودند؟</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="number_of_visits" value="1">  یکبار</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="number_of_visits" value="2">  دوبار</label>
+                  <label><input class="uk-radio" type="radio" id="3" name="number_of_visits" value="3">  بیش از دوبار</label>
+            </div>
+      </div>
+      <br>
+      {% if form.errors %}
+      <div class="uk-width-1-1 fHarmattan redC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{form.errors}}</p>
+    </div>
+      {% endif %}
+      <button style="margin-top:20px;" class="uk-button uk-button-primary fHarmattan redC " type="submit">تایید
+    </button>
+    </form>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<br><br>
+
+    {% endblock %}

@@ -1,0 +1,136 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<meta name=”robots” content=”noindex,follow”>
+<title>
+لیست نظرسنجی ها | شعله خیز آذر
+</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+<h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست نظرسنجی ها</h3>
+<br>
+<div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+{% for feedback in feedbacks %}
+
+      <div class="uk-width-1-1 uk-block">
+<div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+
+      <div style="margin-top:-25px; font-size:18px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
+          <div class="uk-width-1-2 uk-text-left redC-text" >نام و نام خانوادگی</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{feedback.name}}</div>
+
+          <div class="uk-width-1-2 uk-text-left redC-text" >شماره تماس</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{feedback.phone_number}}</div>
+
+          <div class="uk-width-1-1 uk-text-center redC-text" >آدرس</div><div class="uk-width-1-1 uk-text-justify darkgreyC-text">{{feedback.address}}</div>
+
+          <div class="uk-width-1-2 uk-text-left redC-text" >آیا تکنسین به موقع مراجعه کرد؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_visit_on_time == "1" %}
+            بله
+            {% elif feedback.does_visit_on_time == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >آیا تکنسین کارت معتبر همراه داشتند و با لباس کار و تجهیزات کامل مراجعه کرد؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_have_card == "1" %}
+            بله
+            {% elif feedback.does_have_card == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >آیا تکنسین آموزش‌های لازم را برای استفاده از دستگاه را داد؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_gave_tutorial == "1" %}
+            بله
+            {% elif feedback.does_gave_tutorial == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >آیا تکنسین توانست مشکل دستگاه را برطرف نماید؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_solve_problem == "1" %}
+            بله
+            {% elif feedback.does_solve_problem == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >آیا فاکتور شرکتی ارائه داد؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_give_factor == "1" %}
+            بله
+            {% elif feedback.does_give_factor == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >قبل از تعمیر اعلام هزینه کردند؟ (بر اساس تعرفه)</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_announce_cost == "1" %}
+            بله
+            {% elif feedback.does_announce_cost == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >آیا سرویس کار لیبل شماره تماس خود را روی دستگاه چسباندند؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_gave_label == "1" %}
+            بله
+            {% elif feedback.does_gave_label == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >از نحوه سرویس‌دهی سرویسکار رضایت داشتید؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.does_satisfy_you == "1" %}
+            بله
+            {% elif feedback.does_satisfy_you == "2" %}
+            خیر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >برای رفع مشکل دستگاه چند مرتبه مراجعه نمودند؟</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if feedback.number_of_visits == "1" %}
+یکبار
+            {% elif feedback.number_of_visits == "2" %}
+دوبار
+            {% elif feedback.number_of_visits == "3" %}
+بیش از دوبار
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+<br>
+{% if user.is_superuser %}
+<div class="uk-width-1-1 uk-text-left">
+<a class="uk-button uk-button-large redC whiteC-text fHarmattan uk-width-1-1" href="{% url 'company:feedback-delete' feedback.pk %}">حذف</a>
+</div>
+
+{% endif %}
+      </div>
+
+
+
+</div>
+
+</div>
+
+{% endfor %}
+</div>
+    {% endblock %}

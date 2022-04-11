@@ -42,6 +42,50 @@
       {{complaint_form.request}}
       </div>
 
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">رعایت نظافت بعد از اتمام کار</div>
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">
+            <label><input class="uk-radio" type="radio" id="1" name="rate_cleanness" value="1">  غیر قابل قبول</label>
+            <label><input class="uk-radio" type="radio" id="2" name="rate_cleanness" value="2">  قابل قبول</label>
+            <label><input class="uk-radio" type="radio" id="3" name="rate_cleanness" value="3">  فراتر از انتظار</label>
+      </div>
+      <div class="uk-width-1-2@m uk-text-right fHarmattan">رعایت نکات ظاهری و زیبایی در نصب</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+              <label><input class="uk-radio" type="radio" id="1" name="rate_beautiness" value="1">  غیر قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="2" name="rate_beautiness" value="2">  قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="3" name="rate_beautiness" value="3">  فراتر از انتظار</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">رضایت از ظاهر و پوشش سرویسکار</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+              <label><input class="uk-radio" type="radio" id="1" name="rate_clothes" value="1">  غیر قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="2" name="rate_clothes" value="2">  قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="3" name="rate_clothes" value="3">  فراتر از انتظار</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">رضایت از رفتار سرویسکار</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+              <label><input class="uk-radio" type="radio" id="1" name="rate_behaviour" value="1">  غیر قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="2" name="rate_behaviour" value="2">  قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="3" name="rate_behaviour" value="3">  فراتر از انتظار</label>
+            </div>
+
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">به نتیجه رسیدن درخواست، در همان بار اول مراجعه</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+                  <label><input class="uk-radio" type="radio" id="1" name="rate_effectiveness" value="1">  بله</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="rate_effectiveness" value="2">  خیر</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">ارزیابی کلی سرویسکار</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+              <label><input class="uk-radio" type="radio" id="1" name="rate_overall" value="1">  غیر قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="2" name="rate_overall" value="2">  قابل قبول</label>
+              <label><input class="uk-radio" type="radio" id="3" name="rate_overall" value="3">  فراتر از انتظار</label>
+            </div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">زمان مراجعه سرویسکار پس از درخواست سرویس:</div>
+            <div class="uk-width-1-2@m uk-text-right fHarmattan">
+              <label><input class="uk-radio" type="radio" id="1" name="visiting_day" value="1">  همان روز</label>
+              <label><input class="uk-radio" type="radio" id="2" name="visiting_day" value="2">  روز بعد</label>
+              <label><input class="uk-radio" type="radio" id="3" name="visiting_day" value="3"> دو روز دیگر</label>
+              <label><input class="uk-radio" type="radio" id="4" name="visiting_day" value="4">  سه روز و بیشتر</label>
+            </div>
+
       </div>
       <br>
       {% if complaint_form.errors %}

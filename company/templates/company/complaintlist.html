@@ -10,13 +10,13 @@
 {% block body_block %}
 <br>
 <h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">لیست شکایات</h3>
-<div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+<div style="padding:5%; " class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 {% for complaint in complaint_list %}
 
       <div class="uk-width-1-1 uk-block">
 <div  class="uk-card uk-card-default uk-card-body milkywhiteC">
 
-      <div style="margin-top:-25px"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
+      <div style="margin-top:-25px; font-size:18px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
           <div class="uk-width-1-2 uk-text-left redC-text" >نام</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{complaint.name}}</div>
 
           <div class="uk-width-1-2 uk-text-left redC-text" >شماره تماس</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{complaint.phone_number}}</div>
@@ -24,6 +24,93 @@
           <div class="uk-width-1-2 uk-text-left redC-text" >فایل ارسالی</div><div class="uk-width-1-2 uk-text-right darkgreyC-text"> <a href="{{complaint.picture.url}}">دانلود</a> </div>
 
           <div class="uk-width-1-1 uk-text-center redC-text" >متن شکایت</div><div class="uk-width-1-1 uk-text-justify darkgreyC-text">{{complaint.request}}</div>
+
+          <div class="uk-width-1-2 uk-text-left redC-text" >رعایت نظافت بعد از اتمام کار</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.rate_cleanness == "1" %}
+              غیر قابل قبول
+            {% elif complaint.rate_cleanness == "2" %}
+            قابل قبول
+            {% elif complaint.rate_cleanness == "3" %}
+        فراتر از انتظار
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >رعایت نکات ظاهری و زیبایی در نصب</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.rate_beautiness == "1" %}
+              غیر قابل قبول
+            {% elif complaint.rate_beautiness == "2" %}
+            قابل قبول
+            {% elif complaint.rate_beautiness == "3" %}
+        فراتر از انتظار
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >رضایت از ظاهر و پوشش سرویسکار</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.rate_clothes == "1" %}
+              غیر قابل قبول
+            {% elif complaint.rate_clothes == "2" %}
+            قابل قبول
+            {% elif complaint.rate_clothes == "3" %}
+        فراتر از انتظار
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >رضایت از رفتار سرویسکار</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.rate_behaviour == "1" %}
+              غیر قابل قبول
+            {% elif complaint.rate_behaviour == "2" %}
+            قابل قبول
+            {% elif complaint.rate_behaviour == "3" %}
+        فراتر از انتظار
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >به نتیجه رسیدن درخواست، در همان بار اول مراجعه</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.rate_effectiveness == "1" %}
+            بله
+            {% elif complaint.rate_effectiveness == "2" %}
+        خیر
+
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >ارزیابی کلی سرویسکار</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.rate_overall == "1" %}
+              غیر قابل قبول
+            {% elif complaint.rate_overall == "2" %}
+            قابل قبول
+            {% elif complaint.rate_overall == "3" %}
+        فراتر از انتظار
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+          <div class="uk-width-1-2 uk-text-left redC-text" >زمان مراجعه سرویسکار پس از درخواست سرویس:</div>
+          <div class="uk-width-1-2 uk-text-right darkgreyC-text">
+            {% if complaint.visiting_day == "1" %}
+              همان روز
+            {% elif complaint.visiting_day == "2" %}
+             روز بعد
+            {% elif complaint.visiting_day == "3" %}
+        دو روز دیگر
+        {% elif complaint.visiting_day == "4" %}
+ سه روز و بیشتر
+            {% else %}
+            بدون پاسخ
+            {% endif %}
+          </div>
+
 <br>
 <a href="{% url 'company:complaint-delete' complaint.pk  %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">حذف</a>
       </div>
