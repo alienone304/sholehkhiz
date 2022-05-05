@@ -18,12 +18,10 @@
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for photo in photos %}
 {% if photo.for_product %}
-        <li class="uk-width-2-5 ">
+        <li class="uk-width-2-5@s uk-width-3-4 ">
             <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
                 <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
-                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <p class="uk-margin-remove">{{photo.description}}</p>
-                </div>
+
             </a>
         </li>
 {% endif %}
@@ -40,12 +38,10 @@
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for photo in photos %}
         {% if photo.for_factory %}
-        <li class="uk-width-2-5 ">
+        <li class="uk-width-2-5@s uk-width-3-4 ">
             <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
                 <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
-                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <p class="uk-margin-remove">{{photo.description}}</p>
-                </div>
+
             </a>
         </li>
         {% endif %}
@@ -63,12 +59,10 @@
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for photo in photos %}
         {% if photo.for_workers %}
-        <li class="uk-width-2-5 ">
+        <li class="uk-width-2-5@s uk-width-3-4 ">
             <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
                 <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
-                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <p class="uk-margin-remove">{{photo.description}}</p>
-                </div>
+
             </a>
         </li>
         {% endif %}
@@ -86,12 +80,10 @@
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for photo in photos %}
         {% if photo.for_excebition %}
-        <li class="uk-width-2-5 ">
+        <li class="uk-width-2-5@s uk-width-3-4 ">
             <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
                 <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
-                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <p class="uk-margin-remove">{{photo.description}}</p>
-                </div>
+
             </a>
         </li>
         {% endif %}
@@ -109,12 +101,10 @@
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for photo in photos %}
         {% if photo.for_sundry %}
-        <li class="uk-width-2-5 ">
+        <li class="uk-width-2-5@s uk-width-3-4 ">
             <a class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
                 <img width="2000" height="2000" src="{{photo.picture.url}}" alt=""  >
-                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <p class="uk-margin-remove">{{photo.description}}</p>
-                </div>
+
             </a>
         </li>
         {% endif %}
@@ -133,12 +123,9 @@
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000">
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for video in videos %}
-        <li class="uk-width-2-5 ">
-            <div class="uk-panel uk-inline" href="{{photo.picture.url}}"  >
-              <video   controls>
-                <source src="{{video.video.url}}">
-                </video>
-
+        <li class="uk-width-2-5@s uk-width-3-4 ">
+            <div class="uk-panel uk-inline">
+<video src="{{video.video.url}}"  width="1920" height="1080" controls playsinline uk-video></video>
             </div>
         </li>
 {% endfor %}
