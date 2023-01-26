@@ -9,19 +9,20 @@
 
 {% block body_block %}
 <br>
-<div style="padding:7%">
+<div style="padding:4%">
 
-
-<div style="padding: 1%;border-radius: 8px;" uk-grid>
+    <h1 class="redC-text fYekan-bold uk-text-right fHarmattan font-6">درخواست نمایندگی خدمات</h1>
+    <br>
+<div uk-grid>
 <div class=" uk-width-1-1 uk-block fHarmattan ">
-<div class="uk-card uk-card-body milkywhiteC ">
-<div class="uk-card uk-card uk-card-body uk-text-center">
-    <h1 style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">درخواست نمایندگی خدمات</h1>
+<div class="uk-card uk-card-body milkywhiteC shadow-3 border-radius-2">
+<div class="uk-text-center">
+
     <form enctype="multipart/form-data" method="POST">
       {% csrf_token %}
       <ul uk-accordion="multiple: true">
     <li class="uk-open" style="border-right:5px #ff0a0a solid; padding-right:15px;">
-        <a class="uk-accordion-title whiteC" href="#">اطلاعات اجباری</a>
+        <a style="padding-top:10px;padding-bottom:10px;" class="uk-accordion-title whiteC" href="#">اطلاعات اجباری</a>
         <div class="uk-accordion-content">
 
       <div  class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
@@ -107,7 +108,7 @@
         </div>
     </li>
     <li style="border-right:5px #ff0a0a solid; padding-right:15px;">
-        <a class="whiteC uk-accordion-title" href="#">اطلاعات دیگر</a>
+        <a style="padding-top:10px;padding-bottom:10px;" class="whiteC uk-accordion-title" href="#">اطلاعات دیگر</a>
         <div class="uk-accordion-content">
 
       <div  class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
@@ -172,7 +173,7 @@
       {{repairman_request_form.errors}}</p>
     </div>
       {% endif %}
-      <button style="margin-top:20px;" class="uk-button uk-button-primary fHarmattan redC " type="submit">تایید
+      <button style="margin-top:20px;" class="uk-button uk-button-primary fYekan-bold redC border-radius-2" type="submit">تایید
     </button>
     </form>
 </div>

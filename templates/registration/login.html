@@ -13,7 +13,7 @@
 <div style="padding:6%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
   <div class="uk-width-1-1  uk-block">
 <div  class="uk-card uk-card-default uk-card-body milkywhiteC">
-    <p style="font-size:27px; color:#ff0a0a;" class="redC-text uk-card-title uk-align-center fHarmattan" >ورود</p>
+    <p style="font-size:27px; color:#ff0a0a;" class="redC-text fYekan-bold uk-text-right fHarmattan font-6" >ورود</p>
     <form enctype="multipart/form-data" method="POST">
       {% csrf_token %}
       <div class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
@@ -50,7 +50,7 @@
 
       </div>
       <br>
-<button style='margin-top:20px;' class='uk-button uk-button-primary fHarmattan redC' type='submit'>تایید</button>
+<button style='margin-top:20px;' class='uk-button uk-button-primary fYekan-bold redC border-radius-2' type='submit'>تایید</button>
     <br><br>
     <a href="{% url 'accounts:passwordforget' %}" class="fHarmattan redC-text">رمز عبور خود را فراموش کرده اید؟</a>
     </form>
@@ -61,23 +61,19 @@
 </div>
 </div>
 <br><br><br>
-<div class="uk-grid-match uk-text-center" uk-grid>
+<div style="border-top:red solid 2px;" class="uk-text-center">
 
 
-  <div class="uk-width-expand" style=" border-top: solid red 1px;">
-
+  <div >
+<img width="80px;" style="background-color:#e8e8e8; padding:10px; border-radius: 20%; margin-top:-47px;"  src="/media/Logo/fingerprint.png">
   </div>
-  <div class="uk-align-center uk-width-1-5" style="margin-top:-20px;padding-left:30px;width:105px;" >
-<img  src="/media/Logo/fingerprint.png">
-  </div>
-  <div class="uk-width-expand" style=" border-top: solid red 1px;" >
 
-  </div>
 </div>
+<br>
 
 <div class="uk-text-center">
-  <h3 style="margin-left:30px;" class="fHarmattan redC-text">ثبت نام نکرده اید؟</h3>
-    <a style="margin-left:30px;" class="uk-button uk-button-large whiteC-text redC fHarmattan uk-text-large" href="{% url 'commonuser:signup' %}">عضویت</a>
+  <h3  class="fHarmattan redC-text font-4">ثبت نام نکرده اید؟</h3>
+    <a  class="uk-button uk-button-large whiteC-text redC fHarmattan font-3 border-radius-2" href="{% url 'commonuser:signup' %}">عضویت</a>
   </div>
 <br><br>
 {% endblock %}

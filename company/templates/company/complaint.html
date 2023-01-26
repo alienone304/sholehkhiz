@@ -9,21 +9,21 @@
 
 {% block body_block %}
 <br>
-<div style="padding:7%">
+<div style="padding:4%">
 
 
 <div style="padding: 1%;border-radius: 8px;" uk-grid>
 <div class=" uk-width-1-1 uk-block fHarmattan ">
-<div class="uk-card uk-card-body milkywhiteC ">
-<div class="uk-card uk-card uk-card-body uk-text-center">
-    <p style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">فرم شکایت</p>
+<div class="uk-card uk-card-body milkywhiteC  border-radius-2 shadow-3">
+<div class="uk-text-center">
+    <p class="redC-text fYekan-bold uk-text-right fHarmattan font-6">فرم شکایت</p>
     <p style="font-size:18px;" class="black-text uk-card-title uk-text-right fHarmattan">اگر از شرکت شعله خیز آذر شکایتی دارید یا هر یک از محصولات ما
     دارای ایراد بود با عرض پوزش از مشکل به وجود آمده فرم زیر را تکمیل نمایید تا همکاران ما در اسرع وقت با شما تماس گرفته و مشکل به وجود آمده را حل کنند.
 <br>
   با تشکر شرکت شعله خیز آذر</p>
     <form enctype="multipart/form-data" method="POST">
       {% csrf_token %}
-      <div  class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
+      <div  class="uk-grid-match uk-grid-medium uk-text-center" uk-grid>
 
       <div class="uk-width-1">
 {{complaint_form.name}}
@@ -97,7 +97,7 @@
       {{complaint_form.errors}}</p>
     </div>
       {% endif %}
-      <button style="margin-top:20px;" class="uk-button uk-button-primary fHarmattan redC " type="submit">تایید
+      <button style="margin-top:20px;" class="uk-button uk-button-primary fYekan-bold redC border-radius-2  " type="submit">تایید
     </button>
     </form>
 </div>

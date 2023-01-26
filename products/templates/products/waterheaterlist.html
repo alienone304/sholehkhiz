@@ -11,7 +11,7 @@
 
 <div style="padding:4%" class="uk-grid-match uk-text-center uk-grid-small" uk-grid>
   <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m uk-block fHarmattan uk-text-right">
-    <ul style="font-size:18px; margin:5%">
+    <ul style="font-size:18px; margin:1%">
       <p style="margin:10px;" class="redC-text uk-text-bold" >آبگرمکن های شعله خیز</p>
 <p style="margin:10px;" class="redC-text uk-text-bold" >2 سال گارانتی</p>
 <p style="margin:10px;" class="redC-text uk-text-bold">خدمات فعال 24 ساعته</p>
@@ -32,7 +32,7 @@
 
       <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-block fHarmattan">
 
-        <div style="border-radius: 8px;" class="uk-card uk-card-default whiteC">
+        <div style="border-radius: 8px;" class="uk-card uk-card-default whiteC shadow-1">
             <div style=" padding:8px;" class="uk-card-media-top">
 
                 <img style="border-radius: 8px; " src="{{product.picture.url}}">
@@ -40,19 +40,19 @@
             </div>
             <div class="uk-card-body">
               <div  class="uk-grid uk-grid-small darkgreyC-text" uk-grid>
-                <div class="uk-card-title fHarmattan uk-text-bold uk-width-1-1 uk-text-right redC-text" style="color:#ff0a0a;font-size:25px;">
+                <div class="uk-card-title fHarmattan uk-text-bold uk-width-1-1 uk-text-right redC-text font-5" style="color:#ff0a0a;">
 {{product.name}}
 </div>
 
-                <div class="uk-text-right uk-text-justify " style="font-size:20px;">{{product.description|linebreaks}}</div>
+                <div class="uk-text-right uk-text-justify font-4">{{product.description|linebreaks}}</div>
 
               </div>
             </div>
         </div>
 
-        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large redC whiteC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
-        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="uk-button uk-button-large redC whiteC-text fHarmattan " href="{% url 'ordering:order' product.pk %}">سفارش</a>
-<a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;background-color:#f43434;" class="uk-button uk-button-large whiteC-text fHarmattan " href="https://www.aparat.com/v/cJuiH">آموزش سفارش</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="shadow-1 uk-button uk-button-large redC whiteC-text fHarmattan " href="{{product.cataloge.url}}">کاتالوگ</a>
+        <a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;" class="shadow-1 uk-button uk-button-large redC whiteC-text fHarmattan " href="{% url 'ordering:order' product.pk %}">سفارش</a>
+<a style="border-top:solid 4px #f2f2f2; font-size:20px;border-radius: 8px;background-color:#f43434;" class="shadow-1 uk-button uk-button-large whiteC-text fHarmattan " href="https://www.aparat.com/v/cJuiH">آموزش سفارش</a>
 </div>
 {% endfor %}
 </div>

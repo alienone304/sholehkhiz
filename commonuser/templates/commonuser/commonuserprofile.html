@@ -8,18 +8,20 @@
 {% endblock %}
 
 {% block body_block %}
+<div style="padding:4%">
+
 <br>
-<h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">پروفایل</h3>
-<div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+<h3 class="redC-text uk-card-title uk-text-right fYekan-bold font-6">پروفایل</h3>
+<div  class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 
       <div class="uk-width-1-1 uk-block">
-<div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+<div  class="uk-card uk-card-default uk-card-body milkywhiteC  border-radius-2 shadow-3">
 
-      <div style="margin-top:-25px; font-size:20px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid><br>
+      <div style="margin-top:-25px; font-size:18px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid><br>
           <div class="uk-width-1-4@m uk-width-1-4@s uk-width-1-2 uk-text-left redC-text" >نام کاربری</div><div class="uk-width-1-4@m uk-width-1-4@s uk-width-1-2 uk-text-right darkgreyC-text">{{user.username }}</div>
           <div class="uk-width-1-4@m uk-width-1-4@s uk-width-1-2 uk-text-left redC-text" >نام و نام خانوادگی</div><div class="uk-width-1-4@m uk-width-1-4@s uk-width-1-2 uk-text-right darkgreyC-text">{{user.name }}</div>
           <div class=" uk-width-1-2 uk-text-left redC-text" >آدرس</div><div class=" uk-width-1-2 uk-text-right darkgreyC-text">{{user.commonusers.address }}</div>
-<a href="{% url 'accounts:passwordchange' user.slug %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan uk-text-large">تعویض رمز عبور</a>
+<a href="{% url 'accounts:passwordchange' user.slug %}" class="uk-button redC-text uk-width-1-1 uk-margin-small-bottom fHarmattan font-3 uk-text-right">تعویض رمز عبور</a>
       </div>
 </div>
 
@@ -28,17 +30,17 @@
 </div>
 
 {% if orders %}
-<h3 style="font-size:30px;" class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">سفارشات</h3>
+<h3 class="redC-text uk-card-title uk-text-right fYekan-bold font-6">سفارشات</h3>
 {% endif %}
 
-<div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+<div class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 
   {% for order in orders %}
 
         <div class="uk-width-1-1 uk-width-1-2@m uk-block">
-  <div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+  <div  class="uk-card uk-card-default uk-card-body milkywhiteC border-radius-2 shadow-3">
 
-        <div style="margin-top:-25px; font-size:20px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
+        <div style="margin-top:-25px; font-size:18px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
 <div class=" uk-width-1-1 uk-text-right darkgreyC-text">{{order.product.name }}</div>
             <div class=" uk-width-1-1 uk-text-center redC-text" >توضیحات</div><div class=" uk-width-1-1 uk-text-center darkgreyC-text">{{order.description }}</div>
 
@@ -49,5 +51,6 @@
 
 
     {% endfor %}
+</div>
 </div>
     {% endblock %}

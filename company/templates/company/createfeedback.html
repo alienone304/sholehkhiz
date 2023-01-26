@@ -9,15 +9,15 @@
 
 {% block body_block %}
 <br>
-<div style="padding:7%">
+<div style="padding:4%">
 
 
 <div style="padding: 1%;border-radius: 8px;" uk-grid>
 <div class=" uk-width-1-1 uk-block fHarmattan ">
-<div class="uk-card uk-card-body milkywhiteC ">
-<div class="uk-card uk-card uk-card-body uk-text-center">
-    <p style="font-size:30px;" class="redC-text uk-card-title uk-align-center fHarmattan">فرم نظرسنجی</p>
-
+<div class="uk-card uk-card-body milkywhiteC  border-radius-2 shadow-3">
+<div class="uk-text-center">
+    <p class="redC-text fYekan-bold uk-text-right fHarmattan font-6">فرم نظرسنجی</p>
+<br>
     <form enctype="multipart/form-data" method="POST">
       {% csrf_token %}
       <div  class="uk-grid-match uk-grid-medium uk-text-center" uk-grid>
@@ -92,7 +92,7 @@
       {{form.errors}}</p>
     </div>
       {% endif %}
-      <button style="margin-top:20px;" class="uk-button uk-button-primary fHarmattan redC " type="submit">تایید
+      <button style="margin-top:20px;" class="uk-button uk-button-primary fYekan-bold redC border-radius-2" type="submit">تایید
     </button>
     </form>
 </div>

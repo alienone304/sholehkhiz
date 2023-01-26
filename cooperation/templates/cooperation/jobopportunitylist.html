@@ -8,22 +8,24 @@
 {% endblock %}
 
 {% block body_block %}
+<div style="padding:5%" >
+
+<h1 class="redC-text fYekan-bold uk-text-right fHarmattan font-6">فرصت های شغلی</h1>
 <br>
-<h1 class="redC-text uk-card-title uk-text-center fHarmattan uk-text-large">فرصت های شغلی</h1>
-<div style="padding:5%" class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
+<div class="uk-grid-match uk-text-center uk-grid-large" uk-grid>
 {% if job_opportunity_list %}
 {% for job_opportunity in job_opportunity_list %}
 
       <div class="uk-width-1-1 uk-block">
-<div  class="uk-card uk-card-default uk-card-body milkywhiteC">
+<div  class="uk-card uk-card-default uk-card-body milkywhiteC border-radius-2 shadow-3">
 
       <div style="margin-top:-25px; font-size:18px;"  class=" fHarmattan uk-text-large uk-grid-small" uk-grid>
-          <div class="uk-width-1-2 uk-text-left redC-text" >عنوان فرصت شغلی</div><div class="uk-width-1-2 uk-text-right darkgreyC-text">{{job_opportunity.job_title}}</div>
+          <div class="uk-width-1-1 uk-text-center redC-text" >{{job_opportunity.job_title}}</div>
 
           <div class="uk-width-1-4 uk-text-left redC-text" >مهارت های مورد نیاز</div><div class="uk-width-3-4 uk-text-right darkgreyC-text">{{job_opportunity.required_skills|linebreaks }}</div>
           <div class="uk-width-1-4 uk-text-left redC-text" >توضیحات فرصت شغلی</div><div class="uk-width-3-4 uk-text-right darkgreyC-text">{{job_opportunity.descriprion|linebreaks }}</div>
 
-<a style="font-size:18px;" href="{% url 'cooperation:createapplicatoin' job_opportunity.pk %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fHarmattan">درخواست همکاری</a>
+<a style="font-size:18px;padding-top:10px;padding-bottom:10px;" href="{% url 'cooperation:createapplicatoin' job_opportunity.pk %}" class="uk-button redC uk-width-1-1 uk-margin-small-bottom whiteC-text fYekan-bold border-radius-2">درخواست همکاری</a>
 <br>
 
       </div>
@@ -56,5 +58,7 @@
 
 </div>
 {% endif %}
+</div>
+
 </div>
     {% endblock %}
